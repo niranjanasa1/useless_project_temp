@@ -53,10 +53,10 @@ For Software:
 No installation required.The project runs directly in a web browser.
 
 # Run
-[commands]
+https://useless-project-temp-green.vercel.app/
 
 ### Project Documentation
-For Software:
+For Software:The application is built using HTML, CSS, and JavaScript. Users can enter letters, compare their frequency, declare a winner, and view additional features such as tournaments, frequency charts, emotional support, and zodiac-based character results.
 
 # Screenshots (Add at least 3)
 ![Screenshot1](Add screenshot 1 here with proper name)
