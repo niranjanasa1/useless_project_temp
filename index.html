@@ -1,6427 +1,1510 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Letter Battle Royale</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"><style>
-  
-
-  
-/* ================= BASIC ================= */
-  
-
-  
-* {
-  
-    box-sizing: border-box;
-  
-    margin: 0;
-  
-    padding: 0;
-  
-}
-  
-
-  
-body {
-  
-    background: #fff8ed;
-  
-    color: #24163d;
-  
-    font-family: 'Inter', sans-serif;
-  
-    min-height: 100vh;
-  
-    overflow-x: hidden;
-  
-}
-  
-
-  
-button,
-  
-input,
-  
-textarea {
-  
-    font-family: inherit;
-  
-}
-  
-
-  
-/* ================= FLOATING LETTERS ================= */
-  
-
-  
-.floating-letter {
-  
-    position: fixed;
-  
-    font-family: 'Fredoka', sans-serif;
-  
-    font-size: 40px;
-  
-    font-weight: 700;
-  
-    opacity: 0.08;
-  
-    pointer-events: none;
-  
-    z-index: -1;
-  
-    animation: float 7s infinite ease-in-out;
-  
-}
-  
-
-  
-@keyframes float {
-  
-    0% {
-  
-        transform: translateY(0) rotate(0deg);
-  
-    }
-  
-
-  
-    50% {
-  
-        transform: translateY(-25px) rotate(10deg);
-  
-    }
-  
-
-  
-    100% {
-  
-        transform: translateY(0) rotate(0deg);
-  
-    }
-  
-}
-  
-
-  
-/* ================= NAVBAR ================= */
-  
-
-  
-nav {
-  
-    width: 100%;
-  
-    padding: 22px 6%;
-  
-    display: flex;
-  
-    justify-content: space-between;
-  
-    align-items: center;
-  
-    border-bottom: 3px solid #24163d;
-  
-    background: #fff8ed;
-  
-}
-  
-
-  
-.logo {
-  
-    font-family: 'Fredoka', sans-serif;
-  
-    font-size: 22px;
-  
-    font-weight: 700;
-  
-}
-  
-
-  
-.lab-badge {
-  
-    background: #d8ff65;
-  
-    border: 3px solid #24163d;
-  
-    padding: 8px 15px;
-  
-    border-radius: 50px;
-  
-    font-size: 12px;
-  
-    font-weight: 800;
-  
-    box-shadow: 4px 4px 0 #24163d;
-  
-}
-  
-
-  
-/* ================= HEADER ================= */
-  
-
-  
-.header {
-  
-    text-align: center;
-  
-    padding: 60px 20px 35px;
-  
-}
-  
-
-  
-.header h1 {
-  
-    font-family: 'Fredoka', sans-serif;
-  
-    font-size: clamp(42px, 7vw, 76px);
-  
-    line-height: 1;
-  
-    margin-bottom: 18px;
-  
-}
-  
-
-  
-.purple {
-  
-    color: #7c4dff;
-  
-}
-  
-
-  
-.pink {
-  
-    color: #ff4f9a;
-  
-}
-  
-
-  
-.yellow {
-  
-    color: #ffb800;
-  
-}
-  
-
-  
-.header p {
-  
-    font-size: 16px;
-  
-    font-weight: 600;
-  
-    max-width: 650px;
-  
-    margin: auto;
-  
-    line-height: 1.6;
-  
-}
-  
-
-  
-/* ================= MAIN CARD ================= */
-  
-
-  
-.container {
-  
-    width: 90%;
-  
-    max-width: 1000px;
-  
-    margin: auto;
-  
-    padding-bottom: 80px;
-  
-}
-  
-
-  
-.battle-card {
-  
-    background: white;
-  
-    border: 5px solid #24163d;
-  
-    border-radius: 28px;
-  
-    padding: 35px;
-  
-    box-shadow: 10px 10px 0 #24163d;
-  
-}
-  
-
-  
-/* ================= HEADINGS ================= */
-  
-
-  
-.section-title {
-  
-    font-family: 'Fredoka', sans-serif;
-  
-    font-size: 34px;
-  
-    margin-bottom: 10px;
-  
-}
-  
-
-  
-.section-text {
-  
-    font-size: 14px;
-  
-    font-weight: 600;
-  
-    line-height: 1.6;
-  
-    margin-bottom: 20px;
-  
-}
-  
-
-  
-/* ================= TEXT AREA ================= */
-  
-
-  
-.text-section {
-  
-    background: #fff4d6;
-  
-    border: 4px solid #24163d;
-  
-    border-radius: 22px;
-  
-    padding: 25px;
-  
-}
-  
-
-  
-.text-heading {
-  
-    font-family: 'Fredoka', sans-serif;
-  
-    font-size: 28px;
-  
-    margin-bottom: 10px;
-  
-}
-  
-
-  
-.funny-note {
-  
-    background: #d8ff65;
-  
-    border: 3px solid #24163d;
-  
-    border-radius: 15px;
-  
-    padding: 15px;
-  
-    margin: 20px 0;
-  
-    font-size: 13px;
-  
-    font-weight: 700;
-  
-    line-height: 1.5;
-  
-}
-  
-
-  
-.textarea-wrapper {
-  
-    background: white;
-  
-    border: 4px solid #24163d;
-  
-    border-radius: 18px;
-  
-    padding: 5px;
-  
-    box-shadow: 6px 6px 0 #ff4f9a;
-  
-}
-  
-
-  
-textarea {
-  
-    width: 100%;
-  
-    min-height: 220px;
-  
-    border: none;
-  
-    outline: none;
-  
-    resize: vertical;
-  
-    padding: 20px;
-  
-    font-size: 15px;
-  
-    line-height: 1.7;
-  
-    color: #24163d;
-  
-    border-radius: 12px;
-  
-}
-  
-
-  
-textarea::placeholder {
-  
-    color: #8c829b;
-  
-}
-  
-
-  
-.small-note {
-  
-    font-size: 12px;
-  
-    font-weight: 700;
-  
-    margin-top: 15px;
-  
-}
-  
-
-  
-/* ================= DIVIDER ================= */
-  
-
-  
-.divider {
-  
-    margin: 40px 0;
-  
-    border-top: 4px dashed #24163d;
-  
-}
-  
-
-  
-/* ================= WARRIORS ================= */
-  
-
-  
-.warrior-section {
-  
-    text-align: center;
-  
-}
-  
-
-  
-.warrior-title {
-  
-    font-family: 'Fredoka', sans-serif;
-  
-    font-size: 38px;
-  
-    margin-bottom: 10px;
-  
-}
-  
-
-  
-.warriors {
-  
-    display: flex;
-  
-    justify-content: center;
-  
-    align-items: center;
-  
-    gap: 25px;
-  
-    margin: 30px 0;
-  
-    flex-wrap: wrap;
-  
-}
-  
-
-  
-.letter-input {
-  
-    width: 130px;
-  
-    height: 130px;
-  
-    border: 5px solid #24163d;
-  
-    border-radius: 25px;
-  
-    font-family: 'Fredoka', sans-serif;
-  
-    font-size: 65px;
-  
-    font-weight: 700;
-  
-    text-align: center;
-  
-    outline: none;
-  
-    text-transform: uppercase;
-  
-    box-shadow: 8px 8px 0 #24163d;
-  
-}
-  
-
-  
-.letter-input:first-child {
-  
-    background: #d9ccff;
-  
-}
-  
-
-  
-.letter-input:last-child {
-  
-    background: #ffd6e8;
-  
-}
-  
-
-  
-.vs {
-  
-    font-family: 'Fredoka', sans-serif;
-  
-    font-size: 32px;
-  
-    font-weight: 700;
-  
-}
-  
-
-  
-.warning {
-  
-    display: inline-block;
-  
-    background: #ffcf4a;
-  
-    border: 3px solid #24163d;
-  
-    border-radius: 15px;
-  
-    padding: 12px 18px;
-  
-    font-size: 13px;
-  
-    font-weight: 800;
-  
-    margin-bottom: 25px;
-  
-}
-  
-
-  
-/* ================= BUTTONS ================= */
-  
-
-  
-.main-button {
-  
-    display: block;
-  
-    width: 100%;
-  
-    background: #7c4dff;
-  
-    color: white;
-  
-    border: 4px solid #24163d;
-  
-    border-radius: 18px;
-  
-    padding: 18px;
-  
-    font-family: 'Fredoka', sans-serif;
-  
-    font-size: 23px;
-  
-    font-weight: 700;
-  
-    cursor: pointer;
-  
-    box-shadow: 7px 7px 0 #24163d;
-  
-    transition: 0.15s;
-  
-}
-  
-
-  
-.main-button:hover {
-  
-    transform: translate(4px, 4px);
-  
-    box-shadow: 3px 3px 0 #24163d;
-  
-    background: #ff4f9a;
-  
-}
-  
-
-  
-/* ================= RESULT ================= */
-  
-
-  
-.result-section {
-  
-    display: none;
-  
-    margin-top: 50px;
-  
-    padding-top: 40px;
-  
-    border-top: 5px dashed #24163d;
-  
-}
-  
-
-  
-.result-section.show {
-  
-    display: block;
-  
-}
-  
-
-  
-.result-title {
-  
-    text-align: center;
-  
-    font-family: 'Fredoka', sans-serif;
-  
-    font-size: 48px;
-  
-    margin-bottom: 25px;
-  
-}
-  
-
-  
-.winner-box {
-  
-    background: #d8ff65;
-  
-    border: 5px solid #24163d;
-  
-    border-radius: 25px;
-  
-    padding: 30px;
-  
-    text-align: center;
-  
-    box-shadow: 8px 8px 0 #24163d;
-  
-}
-  
-
-  
-.winner-letter {
-  
-    font-family: 'Fredoka', sans-serif;
-  
-    font-size: 100px;
-  
-    font-weight: 700;
-  
-}
-  
-
-  
-.winner-text {
-  
-    font-family: 'Fredoka', sans-serif;
-  
-    font-size: 28px;
-  
-    margin-top: 5px;
-  
-}
-  
-
-  
-.loser-text {
-  
-    margin-top: 15px;
-  
-    font-size: 14px;
-  
-    font-weight: 700;
-  
-}
-  
-
-  
-/* ================= TOURNAMENT ================= */
-  
-
-  
-.tournament-section {
-  
-    display: none;
-  
-    margin-top: 50px;
-  
-    padding-top: 40px;
-  
-    border-top: 5px dashed #24163d;
-  
-}
-  
-
-  
-.tournament-section.show {
-  
-    display: block;
-  
-}
-  
-
-  
-.tournament-title {
-  
-    text-align: center;
-  
-    font-family: 'Fredoka', sans-serif;
-  
-    font-size: 45px;
-  
-    margin-bottom: 10px;
-  
-}
-  
-
-  
-.tournament-description {
-  
-    text-align: center;
-  
-    font-size: 14px;
-  
-    font-weight: 600;
-  
-    line-height: 1.6;
-  
-    margin-bottom: 30px;
-  
-}
-  
-
-  
-.tournament-button {
-  
-    background: #ff4f9a;
-  
-}
-  
-
-  
-.round-info {
-  
-    text-align: center;
-  
-    background: #fff4d6;
-  
-    border: 4px solid #24163d;
-  
-    border-radius: 20px;
-  
-    padding: 25px;
-  
-    margin-bottom: 25px;
-  
-}
-  
-
-  
-.round-number {
-  
-    font-family: 'Fredoka', sans-serif;
-  
-    font-size: 22px;
-  
-}
-  
-
-  
-.current-champion {
-  
-    font-family: 'Fredoka', sans-serif;
-  
-    font-size: 65px;
-  
-    margin: 10px;
-  
-    color: #7c4dff;
-  
-}
-  
-
-  
-.challenger-area {
-  
-    text-align: center;
-  
-}
-  
-
-  
-.challenger-input {
-  
-    width: 110px;
-  
-    height: 110px;
-  
-    border: 5px solid #24163d;
-  
-    border-radius: 22px;
-  
-    background: #c9f4ff;
-  
-    font-family: 'Fredoka', sans-serif;
-  
-    font-size: 55px;
-  
-    text-align: center;
-  
-    outline: none;
-  
-    text-transform: uppercase;
-  
-    box-shadow: 7px 7px 0 #24163d;
-  
-    margin: 15px;
-  
-}
-  
-
-  
-.fight-button {
-  
-    margin-top: 20px;
-  
-    background: #ffb800;
-  
-    color: #24163d;
-  
-}
-  
-
-  
-.fight-message {
-  
-    min-height: 40px;
-  
-    margin-top: 25px;
-  
-    font-family: 'Fredoka', sans-serif;
-  
-    font-size: 20px;
-  
-    text-align: center;
-  
-}
-  
-
-  
-/* ================= TOP FIVE ================= */
-  
-
-  
-.top-five {
-  
-    display: none;
-  
-    margin-top: 55px;
-  
-    padding-top: 40px;
-  
-    border-top: 5px dashed #24163d;
-  
-}
-  
-
-  
-.top-five.show {
-  
-    display: block;
-  
-}
-  
-
-  
-.top-title {
-  
-    text-align: center;
-  
-    font-family: 'Fredoka', sans-serif;
-  
-    font-size: 50px;
-  
-    margin-bottom: 10px;
-  
-}
-  
-
-  
-.top-subtitle {
-  
-    text-align: center;
-  
-    font-size: 14px;
-  
-    font-weight: 700;
-  
-    margin-bottom: 30px;
-  
-}
-  
-
-  
-.ranking-list {
-  
-    display: grid;
-  
-    gap: 18px;
-  
-}
-  
-
-  
-.ranking-card {
-  
-    border: 4px solid #24163d;
-  
-    border-radius: 20px;
-  
-    padding: 20px;
-  
-    display: flex;
-  
-    align-items: center;
-  
-    justify-content: space-between;
-  
-    box-shadow: 6px 6px 0 #24163d;
-  
-}
-  
-
-  
-.ranking-card:nth-child(1) {
-  
-    background: #ffcf4a;
-  
-}
-  
-
-  
-.ranking-card:nth-child(2) {
-  
-    background: #d8ff65;
-  
-}
-  
-
-  
-.ranking-card:nth-child(3) {
-  
-    background: #d9ccff;
-  
-}
-  
-
-  
-.ranking-card:nth-child(4) {
-  
-    background: #ffd6e8;
-  
-}
-  
-
-  
-.ranking-card:nth-child(5) {
-  
-    background: #c9f4ff;
-  
-}
-  
-
-  
-.rank {
-  
-    font-family: 'Fredoka', sans-serif;
-  
-    font-size: 25px;
-  
-}
-  
-
-  
-.rank-letter {
-  
-    font-family: 'Fredoka', sans-serif;
-  
-    font-size: 65px;
-  
-    font-weight: 700;
-  
-}
-  
-
-  
-.rank-count {
-  
-    font-family: 'Fredoka', sans-serif;
-  
-    font-size: 20px;
-  
-    text-align: right;
-  
-}
-  
-
-  
-.final-message {
-  
-    text-align: center;
-  
-    background: #24163d;
-  
-    color: white;
-  
-    border-radius: 20px;
-  
-    padding: 22px;
-  
-    margin-top: 30px;
-  
-    font-family: 'Fredoka', sans-serif;
-  
-    font-size: 20px;
-  
-}
-  
-
-  
-/* ================= ZODIAC ================= */
-  
-
-  
-.letter-zodiac {
-  
-    display: none;
-  
-    margin-top: 55px;
-  
-    padding-top: 40px;
-  
-    border-top: 5px dashed #24163d;
-  
-}
-  
-
-  
-.letter-zodiac.show {
-  
-    display: block;
-  
-}
-  
-
-  
-.zodiac-title {
-  
-    font-family: 'Fredoka', sans-serif;
-  
-    font-size: 42px;
-  
-    line-height: 1.1;
-  
-    margin-bottom: 10px;
-  
-}
-  
-
-  
-.zodiac-subtitle {
-  
-    font-size: 14px;
-  
-    font-weight: 600;
-  
-    line-height: 1.6;
-  
-    margin-bottom: 30px;
-  
-}
-  
-
-  
-.zodiac-grid {
-  
-    display: grid;
-  
-    grid-template-columns: repeat(2, 1fr);
-  
-    gap: 18px;
-  
-}
-  
-
-  
-.zodiac-card {
-  
-    border: 4px solid #24163d;
-  
-    border-radius: 20px;
-  
-    padding: 20px;
-  
-    text-align: left;
-  
-    min-height: 170px;
-  
-    box-shadow: 6px 6px 0 #24163d;
-  
-}
-  
-
-  
-.zodiac-card:nth-child(1) {
-  
-    background: #ffcf4a;
-  
-}
-  
-
-  
-.zodiac-card:nth-child(2) {
-  
-    background: #d8ff65;
-  
-}
-  
-
-  
-.zodiac-card:nth-child(3) {
-  
-    background: #d9ccff;
-  
-}
-  
-
-  
-.zodiac-card:nth-child(4) {
-  
-    background: #ffd6e8;
-  
-}
-  
-
-  
-.zodiac-card:nth-child(5) {
-  
-    background: #c9f4ff;
-  
-}
-  
-
-  
-.zodiac-rank {
-  
-    font-family: 'Fredoka', sans-serif;
-  
-    font-size: 14px;
-  
-    font-weight: 700;
-  
-    margin-bottom: 5px;
-  
-}
-  
-
-  
-.zodiac-letter {
-  
-    font-family: 'Fredoka', sans-serif;
-  
-    font-size: 50px;
-  
-    font-weight: 700;
-  
-    display: inline-block;
-  
-    margin-right: 8px;
-  
-}
-  
-
-  
-.zodiac-name {
-  
-    font-family: 'Fredoka', sans-serif;
-  
-    font-size: 20px;
-  
-    font-weight: 700;
-  
-}
-  
-
-  
-.zodiac-description {
-  
-    font-size: 14px;
-  
-    font-weight: 600;
-  
-    line-height: 1.5;
-  
-    margin-top: 10px;
-  
-}
-  
-
-  
-.zodiac-final {
-  
-    margin-top: 30px;
-  
-    background: #ff4f9a;
-  
-    color: white;
-  
-    border: 4px solid #24163d;
-  
-    border-radius: 20px;
-  
-    padding: 20px;
-  
-    font-family: 'Fredoka', sans-serif;
-  
-    font-size: 22px;
-  
-    box-shadow: 7px 7px 0 #24163d;
-  
-}
-  
-
-  
-/* ================= INTERVIEW ================= */
-  
-
-  
-.interview-section {
-  
-    display: none;
-  
-    margin-top: 55px;
-  
-    padding-top: 40px;
-  
-    border-top: 5px dashed #24163d;
-  
-}
-  
-
-  
-.interview-section.show {
-  
-    display: block;
-  
-}
-  
-
-  
-.interview-title {
-  
-    text-align: center;
-  
-    font-family: 'Fredoka', sans-serif;
-  
-    font-size: 45px;
-  
-    line-height: 1.1;
-  
-    margin-bottom: 12px;
-  
-}
-  
-
-  
-.interview-subtitle {
-  
-    text-align: center;
-  
-    font-size: 14px;
-  
-    font-weight: 600;
-  
-    line-height: 1.6;
-  
-    margin-bottom: 30px;
-  
-}
-  
-
-  
-.interview-buttons {
-  
-    display: grid;
-  
-    grid-template-columns: 1fr 1fr;
-  
-    gap: 20px;
-  
-    margin-bottom: 30px;
-  
-}
-  
-
-  
-.interview-choice {
-  
-    border: 4px solid #24163d;
-  
-    border-radius: 20px;
-  
-    padding: 22px;
-  
-    font-family: 'Fredoka', sans-serif;
-  
-    font-size: 22px;
-  
-    font-weight: 700;
-  
-    cursor: pointer;
-  
-    box-shadow: 6px 6px 0 #24163d;
-  
-    transition: 0.15s;
-  
-}
-  
-
-  
-.winner-choice {
-  
-    background: #d8ff65;
-  
-}
-  
-
-  
-.loser-choice {
-  
-    background: #ffd6e8;
-  
-}
-  
-
-  
-.interview-choice:hover {
-  
-    transform: translate(4px, 4px);
-  
-    box-shadow: 2px 2px 0 #24163d;
-  
-}
-  
-
-  
-.interview-card {
-  
-    display: none;
-  
-    border: 5px solid #24163d;
-  
-    border-radius: 25px;
-  
-    padding: 30px;
-  
-    background: #fff4d6;
-  
-    box-shadow: 8px 8px 0 #24163d;
-  
-}
-  
-
-  
-.interview-card.show {
-  
-    display: block;
-  
-}
-  
-
-  
-.interview-person {
-  
-    text-align: center;
-  
-    margin-bottom: 25px;
-  
-}
-  
-
-  
-.interview-letter {
-  
-    font-family: 'Fredoka', sans-serif;
-  
-    font-size: 90px;
-  
-    font-weight: 700;
-  
-}
-  
-
-  
-.interview-role {
-  
-    font-family: 'Fredoka', sans-serif;
-  
-    font-size: 26px;
-  
-}
-  
-
-  
-.interview-score {
-  
-    font-size: 13px;
-  
-    font-weight: 700;
-  
-    margin-top: 8px;
-  
-}
-  
-
-  
-.interview-ending {
-  
-    margin-top: 25px;
-  
-    background: #7c4dff;
-  
-    color: white;
-  
-    border: 4px solid #24163d;
-  
-    border-radius: 18px;
-  
-    padding: 18px;
-  
-    text-align: center;
-  
-    font-family: 'Fredoka', sans-serif;
-  
-    font-size: 20px;
-  
-}
-  
-
-  
-/* ================= INTERACTIVE INTERVIEW ================= */
-  
-
-  
-.interactive-interview {
-  
-    display: none;
-  
-}
-  
-
-  
-.interactive-interview.show {
-  
-    display: block;
-  
-}
-  
-
-  
-.interview-character-area {
-  
-    text-align: center;
-  
-    margin-bottom: 25px;
-  
-}
-  
-
-  
-.letter-character {
-  
-    width: 180px;
-  
-    height: 180px;
-  
-    margin: auto;
-  
-    border: 5px solid #24163d;
-  
-    border-radius: 35px;
-  
-    background: #d8ff65;
-  
-    box-shadow: 8px 8px 0 #24163d;
-  
-    position: relative;
-  
-    display: flex;
-  
-    align-items: center;
-  
-    justify-content: center;
-  
-    transition: 0.3s;
-  
-}
-  
-
-  
-.letter-character.loser-character {
-  
-    background: #ffd6e8;
-  
-}
-  
-
-  
-.character-letter {
-  
-    font-family: 'Fredoka', sans-serif;
-  
-    font-size: 115px;
-  
-    font-weight: 700;
-  
-    line-height: 1;
-  
-}
-  
-
-  
-.character-eye {
-  
-    position: absolute;
-  
-    width: 22px;
-  
-    height: 28px;
-  
-    background: white;
-  
-    border: 3px solid #24163d;
-  
-    border-radius: 50%;
-  
-    top: 38px;
-  
-}
-  
-
-  
-.character-eye::after {
-  
-    content: "";
-  
-    position: absolute;
-  
-    width: 8px;
-  
-    height: 12px;
-  
-    background: #24163d;
-  
-    border-radius: 50%;
-  
-    left: 5px;
-  
-    top: 5px;
-  
-}
-  
-
-  
-.character-eye.left {
-  
-    left: 40px;
-  
-}
-  
-
-  
-.character-eye.right {
-  
-    right: 40px;
-  
-}
-  
-
-  
-.character-mouth {
-  
-    position: absolute;
-  
-    width: 50px;
-  
-    height: 25px;
-  
-    border-bottom: 5px solid #24163d;
-  
-    border-radius: 0 0 50px 50px;
-  
-    bottom: 32px;
-  
-    left: 50%;
-  
-    transform: translateX(-50%);
-  
-}
-  
-
-  
-/* EXPRESSIONS */
-  
-
-  
-.winner-expression-1 {
-  
-    transform: rotate(-3deg);
-  
-}
-  
-
-  
-.winner-expression-1 .character-mouth {
-  
-    height: 35px;
-  
-    width: 55px;
-  
-}
-  
-
-  
-.winner-expression-2 {
-  
-    transform: rotate(3deg) scale(1.03);
-  
-}
-  
-
-  
-.winner-expression-2 .character-mouth {
-  
-    transform: translateX(-50%) rotate(-10deg);
-  
-}
-  
-
-  
-.winner-expression-3 {
-  
-    transform: rotate(-5deg);
-  
-}
-  
-
-  
-.winner-expression-3 .character-eye {
-  
-    height: 8px;
-  
-    top: 48px;
-  
-    border-radius: 20px;
-  
-}
-  
-
-  
-.winner-expression-3 .character-mouth {
-  
-    width: 60px;
-  
-    height: 8px;
-  
-    border-bottom: 5px solid #24163d;
-  
-}
-  
-
-  
-.loser-expression-1 {
-  
-    transform: rotate(3deg);
-  
-}
-  
-
-  
-.loser-expression-1 .character-mouth {
-  
-    border-bottom: none;
-  
-    border-top: 5px solid #24163d;
-  
-    border-radius: 50px 50px 0 0;
-  
-}
-  
-
-  
-.loser-expression-2 {
-  
-    transform: rotate(-4deg) scale(0.97);
-  
-}
-  
-
-  
-.loser-expression-2 .character-eye.left {
-  
-    transform: rotate(20deg);
-  
-}
-  
-
-  
-.loser-expression-2 .character-eye.right {
-  
-    transform: rotate(-20deg);
-  
-}
-  
-
-  
-.loser-expression-2 .character-mouth {
-  
-    width: 45px;
-  
-    border-bottom: 5px dashed #24163d;
-  
-}
-  
-
-  
-.loser-expression-3 {
-  
-    transform: rotate(6deg) scale(0.94);
-  
-}
-  
-
-  
-.loser-expression-3 .character-mouth {
-  
-    border-bottom: none;
-  
-    border-top: 5px solid #24163d;
-  
-    border-radius: 50px 50px 0 0;
-  
-}
-  
-
-  
-.interactive-question-area {
-  
-    margin-top: 25px;
-  
-}
-  
-
-  
-.question-counter {
-  
-    text-align: center;
-  
-    font-family: 'Fredoka', sans-serif;
-  
-    font-size: 20px;
-  
-    margin-bottom: 15px;
-  
-}
-  
-
-  
-.question-input-row {
-  
-    display: flex;
-  
-    gap: 12px;
-  
-}
-  
-
-  
-.question-input {
-  
-    flex: 1;
-  
-    min-width: 0;
-  
-    height: 55px;
-  
-    border: 4px solid #24163d;
-  
-    border-radius: 15px;
-  
-    padding: 10px 15px;
-  
-    font-size: 14px;
-  
-    font-weight: 600;
-  
-    outline: none;
-  
-}
-  
-
-  
-.question-input:focus {
-  
-    box-shadow: 5px 5px 0 #ff4f9a;
-  
-}
-  
-
-  
-.ask-question-button {
-  
-    background: #ffb800;
-  
-    color: #24163d;
-  
-    border: 4px solid #24163d;
-  
-    border-radius: 15px;
-  
-    padding: 0 22px;
-  
-    font-family: 'Fredoka', sans-serif;
-  
-    font-size: 18px;
-  
-    font-weight: 700;
-  
-    cursor: pointer;
-  
-    box-shadow: 5px 5px 0 #24163d;
-  
-}
-  
-
-  
-.ask-question-button:hover {
-  
-    transform: translate(3px, 3px);
-  
-    box-shadow: 2px 2px 0 #24163d;
-  
-}
-  
-
-  
-.ask-question-button:disabled {
-  
-    opacity: 0.5;
-  
-    cursor: not-allowed;
-  
-}
-  
-
-  
-.interactive-chat {
-  
-    margin-top: 25px;
-  
-    display: grid;
-  
-    gap: 15px;
-  
-}
-  
-
-  
-.chat-question,
-  
-.chat-answer {
-  
-    border: 4px solid #24163d;
-  
-    border-radius: 18px;
-  
-    padding: 18px;
-  
-    font-size: 14px;
-  
-    font-weight: 600;
-  
-    line-height: 1.6;
-  
-}
-  
-
-  
-.chat-question {
-  
-    background: #d9ccff;
-  
-}
-  
-
-  
-.chat-answer {
-  
-    background: white;
-  
-}
-  
-
-  
-.chat-label {
-  
-    font-family: 'Fredoka', sans-serif;
-  
-    font-size: 18px;
-  
-    margin-bottom: 7px;
-  
-}
-  
-
-  
-.typing-message {
-  
-    font-family: 'Fredoka', sans-serif;
-  
-    font-size: 16px;
-  
-    text-align: center;
-  
-    padding: 12px;
-  
-    animation: typingPulse 0.8s infinite alternate;
-  
-}
-  
-
-  
-@keyframes typingPulse {
-  
-    from {
-  
-        opacity: 0.35;
-  
-    }
-  
-
-  
-    to {
-  
-        opacity: 1;
-  
-    }
-  
-}
-  
-
-  
-.interview-final-button {
-  
-    margin-top: 25px;
-  
-    display: none;
-  
-}
-  
-
-  
-.interview-final-button.show {
-  
-    display: block;
-  
-}
-  
-
-  
-/* =========================================================
-  
-   NEW BATTLE EFFECTS
-  
-========================================================= */
-  
-
-  
-/* Winner glow */
-  
-
-  
-.winner-celebration {
-  
-    animation:
-  
-        winnerPop 0.8s ease-out,
-  
-        winnerGlow 1s ease-in-out infinite alternate;
-  
-}
-  
-
-  
-@keyframes winnerPop {
-  
-    0% {
-  
-        transform: scale(0.5) rotate(-10deg);
-  
-        opacity: 0;
-  
-    }
-  
-
-  
-    60% {
-  
-        transform: scale(1.15) rotate(5deg);
-  
-        opacity: 1;
-  
-    }
-  
-
-  
-    100% {
-  
-        transform: scale(1) rotate(0);
-  
-    }
-  
-}
-  
-
-  
-@keyframes winnerGlow {
-  
-    from {
-  
-        box-shadow:
-  
-            8px 8px 0 #24163d,
-  
-            0 0 10px #d8ff65;
-  
-    }
-  
-
-  
-    to {
-  
-        box-shadow:
-  
-            8px 8px 0 #24163d,
-  
-            0 0 35px #ffb800,
-  
-            0 0 60px #ff4f9a;
-  
-    }
-  
-}
-  
-
-  
-/* Loser shake */
-  
-
-  
-.loser-shake {
-  
-    animation: loserShake 0.7s ease-in-out;
-  
-}
-  
-
-  
-@keyframes loserShake {
-  
-    0%, 100% {
-  
-        transform: translateX(0) rotate(0);
-  
-    }
-  
-
-  
-    15% {
-  
-        transform: translateX(-12px) rotate(-5deg);
-  
-    }
-  
-
-  
-    30% {
-  
-        transform: translateX(12px) rotate(5deg);
-  
-    }
-  
-
-  
-    45% {
-  
-        transform: translateX(-10px) rotate(-4deg);
-  
-    }
-  
-
-  
-    60% {
-  
-        transform: translateX(10px) rotate(4deg);
-  
-    }
-  
-
-  
-    75% {
-  
-        transform: translateX(-5px) rotate(-2deg);
-  
-    }
-  
-}
-  
-
-  
-/* Whole screen battle shake */
-  
-
-  
-.battle-shake {
-  
-    animation: screenShake 0.45s ease-in-out;
-  
-}
-  
-
-  
-@keyframes screenShake {
-  
-    0%, 100% {
-  
-        transform: translate(0);
-  
-    }
-  
-
-  
-    20% {
-  
-        transform: translate(-7px, 3px);
-  
-    }
-  
-
-  
-    40% {
-  
-        transform: translate(7px, -3px);
-  
-    }
-  
-
-  
-    60% {
-  
-        transform: translate(-5px, -2px);
-  
-    }
-  
-
-  
-    80% {
-  
-        transform: translate(5px, 2px);
-  
-    }
-  
-}
-  
-
-  
-/* Winner announcement overlay */
-  
-
-  
-.announcement-overlay {
-  
-    position: fixed;
-  
-    inset: 0;
-  
-    background: rgba(36, 22, 61, 0.94);
-  
-    z-index: 9998;
-  
-    display: none;
-  
-    align-items: center;
-  
-    justify-content: center;
-  
-    text-align: center;
-  
-    padding: 25px;
-  
-}
-  
-
-  
-.announcement-overlay.show {
-  
-    display: flex;
-  
-    animation: overlayIn 0.3s ease-out;
-  
-}
-  
-
-  
-@keyframes overlayIn {
-  
-    from {
-  
-        opacity: 0;
-  
-    }
-  
-
-  
-    to {
-  
-        opacity: 1;
-  
-    }
-  
-}
-  
-
-  
-.announcement-content {
-  
-    color: white;
-  
-    font-family: 'Fredoka', sans-serif;
-  
-}
-  
-
-  
-.announcement-small {
-  
-    font-size: 28px;
-  
-    margin-bottom: 20px;
-  
-    animation: announcementText 0.6s ease-out;
-  
-}
-  
-
-  
-.announcement-count {
-  
-    font-size: clamp(80px, 20vw, 180px);
-  
-    line-height: 1;
-  
-    color: #ffcf4a;
-  
-    text-shadow: 8px 8px 0 #ff4f9a;
-  
-}
-  
-
-  
-.announcement-main {
-  
-    display: none;
-  
-    font-size: clamp(40px, 8vw, 80px);
-  
-    line-height: 1;
-  
-    color: #d8ff65;
-  
-    text-shadow: 6px 6px 0 #ff4f9a;
-  
-}
-  
-
-  
-.announcement-letter {
-  
-    font-size: clamp(120px, 25vw, 230px);
-  
-    color: #ffcf4a;
-  
-    line-height: 0.9;
-  
-    display: none;
-  
-    text-shadow:
-  
-        8px 8px 0 #ff4f9a,
-  
-        0 0 30px #d8ff65;
-  
-    animation: winnerLetterReveal 0.7s ease-out;
-  
-}
-  
-
-  
-.announcement-subtitle {
-  
-    display: none;
-  
-    font-family: 'Inter', sans-serif;
-  
-    font-size: 18px;
-  
-    font-weight: 700;
-  
-    margin-top: 25px;
-  
-    color: white;
-  
-}
-  
-
-  
-@keyframes winnerLetterReveal {
-  
-    0% {
-  
-        transform: scale(0) rotate(-20deg);
-  
-    }
-  
-
-  
-    60% {
-  
-        transform: scale(1.25) rotate(8deg);
-  
-    }
-  
-
-  
-    100% {
-  
-        transform: scale(1) rotate(0);
-  
-    }
-  
-}
-  
-
-  
-/* Confetti */
-  
-
-  
-.confetti {
-  
-    position: fixed;
-  
-    width: 12px;
-  
-    height: 20px;
-  
-    z-index: 10000;
-  
-    pointer-events: none;
-  
-    animation: confettiFall 2.5s linear forwards;
-  
-}
-  
-
-  
-@keyframes confettiFall {
-  
-    0% {
-  
-        transform:
-  
-            translateY(-30px)
-  
-            rotate(0deg);
-  
-        opacity: 1;
-  
-    }
-  
-
-  
-    100% {
-  
-        transform:
-  
-            translateY(110vh)
-  
-            rotate(720deg);
-  
-        opacity: 0;
-  
-    }
-  
-}
-  
-
-  
-/* Explosion particles */
-  
-
-  
-.explosion-particle {
-  
-    position: fixed;
-  
-    width: 12px;
-  
-    height: 12px;
-  
-    border-radius: 50%;
-  
-    z-index: 10001;
-  
-    pointer-events: none;
-  
-    animation: explode 0.9s ease-out forwards;
-  
-}
-  
-
-  
-@keyframes explode {
-  
-    0% {
-  
-        transform: translate(0, 0) scale(1);
-  
-        opacity: 1;
-  
-    }
-  
-
-  
-    100% {
-  
-        transform:
-  
-            translate(
-  
-                var(--x),
-  
-                var(--y)
-  
-            )
-  
-            scale(0);
-  
-        opacity: 0;
-  
-    }
-  
-}
-  
-
-  
-/* Dramatic eliminated text */
-  
-
-  
-.eliminated-message {
-  
-    position: fixed;
-  
-    left: 50%;
-  
-    top: 50%;
-  
-    transform: translate(-50%, -50%) rotate(-8deg);
-  
-    z-index: 10002;
-  
-    display: none;
-  
-    background: #ff4f9a;
-  
-    color: white;
-  
-    border: 6px solid #24163d;
-  
-    padding: 20px 35px;
-  
-    border-radius: 20px;
-  
-    font-family: 'Fredoka', sans-serif;
-  
-    font-size: clamp(35px, 8vw, 75px);
-  
-    box-shadow: 10px 10px 0 #24163d;
-  
-    text-align: center;
-  
-}
-  
-
-  
-.eliminated-message.show {
-  
-    display: block;
-  
-    animation: eliminatedPop 0.8s ease-out;
-  
-}
-  
-
-  
-@keyframes eliminatedPop {
-  
-    0% {
-  
-        transform:
-  
-            translate(-50%, -50%)
-  
-            scale(0)
-  
-            rotate(-30deg);
-  
-    }
-  
-
-  
-    70% {
-  
-        transform:
-  
-            translate(-50%, -50%)
-  
-            scale(1.15)
-  
-            rotate(8deg);
-  
-    }
-  
-
-  
-    100% {
-  
-        transform:
-  
-            translate(-50%, -50%)
-  
-            scale(1)
-  
-            rotate(-8deg);
-  
-    }
-  
-}
-  
-
-  
-/* Tournament impact */
-  
-
-  
-.tournament-impact {
-  
-    animation: tournamentImpact 0.6s ease-out;
-  
-}
-  
-
-  
-@keyframes tournamentImpact {
-  
-    0% {
-  
-        transform: scale(1);
-  
-    }
-  
-
-  
-    35% {
-  
-        transform: scale(1.15) rotate(-4deg);
-  
-    }
-  
-
-  
-    70% {
-  
-        transform: scale(0.95) rotate(4deg);
-  
-    }
-  
-
-  
-    100% {
-  
-        transform: scale(1);
-  
-    }
-  
-}
-  
-
-  
-/* ================= MOBILE ================= */
-  
-
-  
-@media (max-width: 600px) {
-  
-
-  
-    nav {
-  
-        padding: 18px 5%;
-  
-    }
-  
-
-  
-    .logo {
-  
-        font-size: 17px;
-  
-    }
-  
-
-  
-    .lab-badge {
-  
-        font-size: 10px;
-  
-    }
-  
-
-  
-    .battle-card {
-  
-        padding: 20px;
-  
-    }
-  
-
-  
-    .header {
-  
-        padding-top: 40px;
-  
-    }
-  
-
-  
-    .warriors {
-  
-        gap: 15px;
-  
-    }
-  
-
-  
-    .letter-input {
-  
-        width: 100px;
-  
-        height: 100px;
-  
-        font-size: 50px;
-  
-    }
-  
-
-  
-    .zodiac-grid {
-  
-        grid-template-columns: 1fr;
-  
-    }
-  
-
-  
-    .zodiac-title {
-  
-        font-size: 32px;
-  
-    }
-  
-
-  
-    .top-title {
-  
-        font-size: 38px;
-  
-    }
-  
-
-  
-    .tournament-title {
-  
-        font-size: 35px;
-  
-    }
-  
-
-  
-    .interview-title {
-  
-        font-size: 34px;
-  
-    }
-  
-
-  
-    .interview-buttons {
-  
-        grid-template-columns: 1fr;
-  
-    }
-  
-
-  
-    .interview-card {
-  
-        padding: 20px;
-  
-    }
-  
-
-  
-    .question-input-row {
-  
-        flex-direction: column;
-  
-    }
-  
-
-  
-    .ask-question-button {
-  
-        height: 55px;
-  
-    }
-  
-
-  
-    .letter-character {
-  
-        width: 155px;
-  
-        height: 155px;
-  
-    }
-  
-
-  
-    .character-letter {
-  
-        font-size: 95px;
-  
-    }
-  
-}
-  
-
-  
-</style></head><body><!-- FLOATING LETTERS --><div class="floating-letter" style="top:10%; left:5%;">A</div><div class="floating-letter" style="top:20%; right:8%;">Z</div><div class="floating-letter" style="top:45%; left:3%;">Q</div><div class="floating-letter" style="top:60%; right:5%;">M</div><div class="floating-letter" style="top:80%; left:8%;">X</div><div class="floating-letter" style="top:85%; right:10%;">B</div><!-- WINNER ANNOUNCEMENT OVERLAY --><div class="announcement-overlay" id="announcementOverlay"><div class="announcement-content">
-
-
-
-    <div class="announcement-small" id="announcementSmall">
-
-        THE BATTLE IS OVER...
-
-    </div>
-
-
-
-    <div class="announcement-count" id="announcementCount">
-
-        3
-
-    </div>
-
-
-
-    <div class="announcement-main" id="announcementMain">
-
-        THE WINNER IS...
-
-    </div>
-
-
-
-    <div class="announcement-letter" id="announcementLetter">
-
-        A
-
-    </div>
-
-
-
-    <div class="announcement-subtitle" id="announcementSubtitle">
-
-        ABSOLUTELY DESTROYED THE COMPETITION. 💀
-
-    </div>
-
-
-
-</div>
-
-</div><!-- LOSER EFFECT --><div class="eliminated-message" id="eliminatedMessage">💀 ELIMINATED 💀
-
-</div><!-- NAVBAR --><nav><div class="logo">
-
-    LETTER BATTLE ROYALE
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Letter Battle Royale — Nobody Knows What They're Winning</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+  --cream:#FFF7E8;
+  --purple:#7652D6;
+  --purple-dark:#34205F;
+  --pink:#FF6FAE;
+  --yellow:#FFD84D;
+  --mint:#76E3B5;
+  --orange:#FF9563;
+  --white:#FFFFFF;
+  --text:#30204F;
+  --muted:#756982;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  min-height:100vh;
+  background:var(--cream);
+  color:var(--text);
+  font-family:'Inter',sans-serif;
+  overflow-x:hidden;
+}
+
+.letter-field{
+  position:fixed;
+  inset:0;
+  overflow:hidden;
+  pointer-events:none;
+  z-index:0;
+}
+
+.letter-field span{
+  position:absolute;
+  font-family:'Fredoka',sans-serif;
+  font-weight:700;
+  opacity:.12;
+  animation:float 4s ease-in-out infinite;
+}
+
+@keyframes float{
+  0%,100%{
+    transform:
+      translateY(0)
+      rotate(var(--rotation))
+      scale(1);
+  }
+
+  50%{
+    transform:
+      translateY(-28px)
+      rotate(calc(var(--rotation) + 8deg))
+      scale(1.08);
+  }
+}
+
+.page{
+  position:relative;
+  z-index:1;
+}
+
+.container{
+  width:min(1050px,92%);
+  margin:auto;
+}
+
+nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:24px 0;
+}
+
+.logo{
+  font-family:'Fredoka',sans-serif;
+  font-size:1.45rem;
+  font-weight:700;
+}
+
+.logo span{
+  color:var(--pink);
+}
+
+.badge{
+  background:var(--mint);
+  padding:8px 14px;
+  border-radius:50px;
+  font-size:.7rem;
+  font-weight:700;
+  box-shadow:0 4px 0 var(--purple-dark);
+  transform:rotate(2deg);
+
+  transition:
+    transform .3s ease,
+    box-shadow .3s ease;
+}
+
+.badge:hover{
+  transform:
+    rotate(-3deg)
+    scale(1.1)
+    translateY(-4px);
+
+  box-shadow:
+    0 8px 0 var(--purple-dark),
+    0 0 20px rgba(118,227,181,.7);
+}
+
+.hero{
+  text-align:center;
+  padding:35px 0 10px;
+}
+
+.kicker{
+  display:inline-block;
+  background:var(--yellow);
+  padding:8px 15px;
+  border-radius:50px;
+  font-size:.7rem;
+  font-weight:700;
+  box-shadow:0 5px 0 var(--purple-dark);
+  transform:rotate(-2deg);
+  margin-bottom:22px;
+  animation:kickerBounce 2s ease-in-out infinite;
+
+  transition:
+    transform .3s ease,
+    box-shadow .3s ease;
+}
+
+.kicker:hover{
+  transform:
+    rotate(3deg)
+    scale(1.1)
+    translateY(-5px);
+
+  box-shadow:
+    0 9px 0 var(--purple-dark),
+    0 0 20px rgba(255,216,77,.8);
+}
+
+@keyframes kickerBounce{
+  0%,100%{
+    transform:rotate(-2deg) translateY(0);
+  }
+
+  50%{
+    transform:rotate(2deg) translateY(-5px);
+  }
+}
+
+.hero h1{
+  font-family:'Fredoka',sans-serif;
+  font-size:clamp(3rem,8vw,6rem);
+  line-height:.9;
+  letter-spacing:-3px;
+  max-width:900px;
+  margin:auto;
+  animation:titleReveal .8s ease-out;
+}
+
+.hero h1 .pink{
+  color:var(--pink);
+}
+
+.hero h1 .purple{
+  color:var(--purple);
+  display:inline-block;
+  transform:rotate(-2deg);
+  animation:dangerShake 2.5s ease-in-out infinite;
+}
+
+@keyframes titleReveal{
+  from{
+    opacity:0;
+    transform:translateY(20px);
+  }
+
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+@keyframes dangerShake{
+  0%,90%,100%{
+    transform:rotate(-2deg);
+  }
+
+  92%{
+    transform:rotate(3deg);
+  }
+
+  94%{
+    transform:rotate(-3deg);
+  }
+
+  96%{
+    transform:rotate(2deg);
+  }
+}
+
+.tagline{
+  font-family:'Fredoka',sans-serif;
+  font-size:clamp(1.1rem,3vw,1.5rem);
+  margin-top:18px;
+  color:var(--purple-dark);
+}
+
+.tagline span{
+  color:var(--pink);
+}
+
+.hero-description{
+  max-width:590px;
+  margin:13px auto 0;
+  font-size:.9rem;
+  line-height:1.6;
+  color:var(--muted);
+}
+
+.battle-scene{
+  position:relative;
+  width:100%;
+  max-width:850px;
+  height:290px;
+  margin:30px auto 0;
+  border-radius:35px;
+  overflow:hidden;
+
+  background:
+    linear-gradient(
+      180deg,
+      #34205F 0%,
+      #4B3282 55%,
+      #7652D6 100%
+    );
+
+  box-shadow:0 10px 0 var(--purple-dark);
+
+  animation:battleEntrance .8s ease-out;
+
+  transition:
+    transform .35s ease,
+    box-shadow .35s ease;
+}
+
+.battle-scene:hover{
+  transform:
+    translateY(-7px)
+    scale(1.015);
+
+  box-shadow:
+    0 17px 0 var(--purple-dark),
+    0 0 30px rgba(118,82,214,.45);
+}
+
+@keyframes battleEntrance{
+  from{
+    opacity:0;
+    transform:scale(.94);
+  }
+
+  to{
+    opacity:1;
+    transform:scale(1);
+  }
+}
+
+.battle-scene::before{
+  content:"";
+  position:absolute;
+  inset:0;
+
+  background-image:
+    radial-gradient(
+      white 1px,
+      transparent 1px
+    );
+
+  background-size:35px 35px;
+  opacity:.3;
+
+  animation:starsMove 5s linear infinite;
+}
+
+@keyframes starsMove{
+  from{
+    background-position:0 0;
+  }
+
+  to{
+    background-position:35px 35px;
+  }
+}
+
+.battle-title{
+  position:absolute;
+  top:22px;
+  left:50%;
+  transform:translateX(-50%);
+  z-index:5;
+
+  background:var(--yellow);
+  color:var(--purple-dark);
+
+  padding:8px 18px;
+
+  border-radius:50px;
+
+  font-size:.7rem;
+  font-weight:700;
+
+  box-shadow:0 5px 0 #20143d;
+
+  animation:warTitle 1.2s ease-in-out infinite;
+
+  transition:
+    transform .3s ease,
+    box-shadow .3s ease;
+}
+
+.battle-title:hover{
+  transform:
+    translateX(-50%)
+    scale(1.12)
+    rotate(-3deg);
+
+  box-shadow:
+    0 9px 0 #20143d,
+    0 0 20px rgba(255,216,77,.8);
+}
+
+@keyframes warTitle{
+  0%,100%{
+    transform:translateX(-50%) rotate(-2deg);
+  }
+
+  50%{
+    transform:
+      translateX(-50%)
+      rotate(2deg)
+      scale(1.05);
+  }
+}
+
+.warrior{
+  position:absolute;
+  bottom:25px;
+
+  font-family:'Fredoka',sans-serif;
+  font-weight:700;
+
+  font-size:10rem;
+  line-height:1;
+
+  text-shadow:
+    8px 8px 0 var(--purple-dark);
+
+  z-index:3;
+
+  cursor:pointer;
+
+  transition:
+    transform .3s ease,
+    filter .3s ease;
+}
+
+.warrior-a{
+  left:12%;
+  color:var(--yellow);
+
+  transform:rotate(-8deg);
+
+  animation:
+    warriorLeft 1.8s ease-in-out infinite;
+}
+
+@keyframes warriorLeft{
+
+  0%,100%{
+    transform:
+      translateX(0)
+      rotate(-8deg)
+      scale(1);
+  }
+
+  45%{
+    transform:
+      translateX(35px)
+      rotate(-2deg)
+      scale(1.08);
+  }
+
+  50%{
+    transform:
+      translateX(42px)
+      rotate(-1deg)
+      scale(1.12);
+  }
+}
+
+.warrior-e{
+  right:12%;
+  color:var(--pink);
+
+  transform:rotate(8deg);
+
+  animation:
+    warriorRight 1.8s ease-in-out infinite;
+}
+
+@keyframes warriorRight{
+
+  0%,100%{
+    transform:
+      translateX(0)
+      rotate(8deg)
+      scale(1);
+  }
+
+  45%{
+    transform:
+      translateX(-35px)
+      rotate(2deg)
+      scale(1.08);
+  }
+
+  50%{
+    transform:
+      translateX(-42px)
+      rotate(1deg)
+      scale(1.12);
+  }
+}
+
+.warrior:hover{
+  transform:
+    scale(1.3)
+    rotate(0deg) !important;
+
+  filter:
+    drop-shadow(0 0 15px white)
+    drop-shadow(0 0 30px currentColor);
+
+  text-shadow:
+    10px 10px 0 var(--purple-dark),
+    0 0 25px currentColor;
+}
+
+.vs{
+  position:absolute;
+  top:50%;
+  left:50%;
+
+  transform:
+    translate(-50%,-50%);
+
+  z-index:6;
+
+  font-family:'Fredoka',sans-serif;
+
+  font-size:3rem;
+
+  color:white;
+
+  text-shadow:
+    4px 4px 0 var(--purple-dark);
+
+  animation:pulse 1s ease-in-out infinite;
+
+  transition:
+    transform .3s ease,
+    color .3s ease;
+}
+
+.vs:hover{
+  transform:
+    translate(-50%,-50%)
+    scale(1.45)
+    rotate(-5deg);
+
+  color:var(--yellow);
+
+  text-shadow:
+    5px 5px 0 var(--purple-dark),
+    0 0 25px var(--yellow);
+}
+
+@keyframes pulse{
+
+  0%,100%{
+    transform:
+      translate(-50%,-50%)
+      scale(1)
+      rotate(-3deg);
+  }
+
+  50%{
+    transform:
+      translate(-50%,-50%)
+      scale(1.3)
+      rotate(3deg);
+  }
+}
+
+.sword{
+  position:absolute;
+  top:50%;
+  font-size:3rem;
+  z-index:4;
+
+  transition:
+    transform .3s ease,
+    filter .3s ease;
+}
+
+.sword-left{
+  left:35%;
+  transform:rotate(35deg);
+  animation:swordLeft 1s ease-in-out infinite;
+}
+
+.sword-right{
+  right:35%;
+  transform:rotate(-35deg);
+  animation:swordRight 1s ease-in-out infinite;
+}
+
+.sword:hover{
+  transform:
+    scale(1.4)
+    rotate(0deg);
+
+  filter:
+    drop-shadow(0 0 10px white)
+    drop-shadow(0 0 20px var(--yellow));
+}
+
+@keyframes swordLeft{
+
+  0%,100%{
+    transform:rotate(35deg) translate(0,0);
+  }
+
+  50%{
+    transform:rotate(55deg) translate(12px,-8px);
+  }
+}
+
+@keyframes swordRight{
+
+  0%,100%{
+    transform:rotate(-35deg) translate(0,0);
+  }
+
+  50%{
+    transform:rotate(-55deg) translate(-12px,-8px);
+  }
+}
+
+.background-letter{
+  position:absolute;
+
+  font-family:'Fredoka',sans-serif;
+
+  font-size:3rem;
+
+  font-weight:700;
+
+  opacity:.18;
+
+  color:white;
+
+  animation:backgroundFloat 3s ease-in-out infinite;
+
+  transition:
+    opacity .3s ease,
+    transform .3s ease;
+}
+
+.background-letter:hover{
+  opacity:.8;
+
+  transform:
+    scale(1.5)
+    rotate(15deg);
+}
+
+@keyframes backgroundFloat{
+
+  0%,100%{
+    transform:
+      translateY(0)
+      rotate(var(--r));
+  }
+
+  50%{
+    transform:
+      translateY(-15px)
+      rotate(calc(var(--r) + 8deg));
+  }
+}
+
+.bl1{
+  left:5%;
+  top:30%;
+  --r:-20deg;
+}
+
+.bl2{
+  left:28%;
+  top:18%;
+  --r:15deg;
+}
+
+.bl3{
+  right:28%;
+  top:20%;
+  --r:-15deg;
+}
+
+.bl4{
+  right:5%;
+  top:35%;
+  --r:20deg;
+}
+
+.bl5{
+  left:47%;
+  bottom:12%;
+  --r:12deg;
+}
+
+
+/* BUTTON */
+
+.lab-button{
+  display:inline-flex;
+
+  align-items:center;
+  justify-content:center;
+
+  gap:9px;
+
+  margin-top:24px;
+
+  padding:16px 32px;
+
+  border:none;
+
+  border-radius:18px;
+
+  background:var(--pink);
+
+  color:white;
+
+  font-family:'Fredoka',sans-serif;
+
+  font-size:1.08rem;
+
+  font-weight:700;
+
+  cursor:pointer;
+
+  box-shadow:
+    0 7px 0 var(--purple-dark),
+    inset 0 3px 5px rgba(255,255,255,.4);
+
+  transition:
+    transform .25s ease,
+    box-shadow .25s ease,
+    background .25s ease,
+    letter-spacing .25s ease;
+
+  animation:buttonGlow 2s ease-in-out infinite;
+}
+
+@keyframes buttonGlow{
+
+  0%,100%{
+    transform:scale(1);
+  }
+
+  50%{
+    transform:scale(1.04);
+  }
+}
+
+.lab-button:hover{
+
+  background:var(--purple);
+
+  transform:
+    translateY(-9px)
+    rotate(-2deg)
+    scale(1.1);
+
+  box-shadow:
+    0 15px 0 var(--purple-dark),
+    0 0 25px rgba(255,111,174,.7),
+    0 0 45px rgba(118,82,214,.4),
+    inset 0 3px 5px rgba(255,255,255,.6);
+
+  letter-spacing:1px;
+}
+
+.lab-button:active{
+
+  transform:
+    translateY(4px)
+    scale(.97);
+
+  box-shadow:
+    0 3px 0 var(--purple-dark);
+}
+
+.warning{
+  margin-top:13px;
+  font-size:.7rem;
+  color:#9A8EA8;
+  font-weight:600;
+}
+
+.warning span{
+  color:var(--pink);
+}
+
+.section-title{
+  text-align:center;
+  margin:55px auto 25px;
+}
+
+.section-title small{
+  display:block;
+  font-size:.68rem;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:1.5px;
+  color:var(--purple);
+}
+
+.section-title h2{
+  font-family:'Fredoka',sans-serif;
+  font-size:clamp(1.8rem,5vw,2.7rem);
+  margin-top:5px;
+}
+
+.features{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px;
+}
+
+.card{
+  padding:22px;
+  border-radius:25px;
+  min-height:210px;
+
+  box-shadow:
+    0 8px 0 var(--purple-dark),
+    inset 0 4px 7px rgba(255,255,255,.5);
+
+  transition:
+    transform .3s ease,
+    box-shadow .3s ease,
+    filter .3s ease;
+
+  cursor:pointer;
+}
+
+.card:hover{
+
+  transform:
+    translateY(-15px)
+    rotate(2deg)
+    scale(1.06);
+
+  box-shadow:
+    0 17px 0 var(--purple-dark),
+    0 15px 30px rgba(52,32,95,.2),
+    0 0 25px rgba(118,82,214,.2),
+    inset 0 4px 7px rgba(255,255,255,.6);
+
+  filter:saturate(1.2);
+}
+
+.card:nth-child(1){
+  background:var(--yellow);
+  transform:rotate(-1deg);
+}
+
+.card:nth-child(2){
+  background:var(--pink);
+  color:white;
+  transform:rotate(1deg);
+}
+
+.card:nth-child(3){
+  background:var(--mint);
+  transform:rotate(-1deg);
+}
+
+.card:nth-child(4){
+  background:var(--orange);
+  transform:rotate(1deg);
+}
+
+.card-icon{
+  width:52px;
+  height:52px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  background:rgba(255,255,255,.55);
+
+  border-radius:16px;
+
+  font-size:1.3rem;
+
+  margin-bottom:18px;
+
+  box-shadow:
+    inset 0 -4px 0 rgba(0,0,0,.08);
+
+  transition:
+    transform .3s ease,
+    box-shadow .3s ease;
+}
+
+.card:hover .card-icon{
+
+  transform:
+    rotate(-12deg)
+    scale(1.25);
+
+  box-shadow:
+    inset 0 -4px 0 rgba(0,0,0,.08),
+    0 0 20px rgba(255,255,255,.8);
+}
+
+.card h3{
+  font-family:'Fredoka',sans-serif;
+  font-size:1.2rem;
+  margin-bottom:8px;
+}
+
+.card p{
+  font-size:.78rem;
+  line-height:1.55;
+  opacity:.82;
+}
+
+.quote{
+  max-width:700px;
+
+  margin:55px auto 0;
+
+  background:white;
+
+  padding:30px 25px;
+
+  border-radius:25px;
+
+  text-align:center;
+
+  box-shadow:
+    0 7px 0 var(--purple-dark);
+
+  transform:rotate(1deg);
+
+  transition:
+    transform .3s ease,
+    box-shadow .3s ease;
+}
+
+.quote:hover{
+
+  transform:
+    rotate(-1deg)
+    translateY(-10px)
+    scale(1.04);
+
+  box-shadow:
+    0 15px 0 var(--purple-dark),
+    0 15px 30px rgba(52,32,95,.18);
+}
+
+.quote p{
+  font-family:'Fredoka',sans-serif;
+
+  font-size:
+    clamp(1.15rem,4vw,1.5rem);
+
+  line-height:1.35;
+}
+
+.quote span{
+
+  display:block;
+
+  margin-top:12px;
+
+  font-size:.65rem;
+
+  color:#9A8EA8;
+
+  font-weight:600;
+}
+
+.final{
+  text-align:center;
+  padding:60px 0 35px;
+}
+
+.final h2{
+  font-family:'Fredoka',sans-serif;
+
+  font-size:
+    clamp(2.3rem,7vw,4rem);
+
+  line-height:.95;
+
+  letter-spacing:-1px;
+}
+
+.final p{
+  margin-top:14px;
+  color:var(--muted);
+  font-size:.9rem;
+}
+
+footer{
+
+  text-align:center;
+
+  padding:10px 0 30px;
+
+  font-size:.65rem;
+
+  line-height:1.6;
+
+  color:#A095AA;
+}
+
+@media(max-width:900px){
+
+  .features{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+}
+
+@media(max-width:700px){
+
+  .hero{
+    padding-top:32px;
+  }
+
+  .hero h1{
+    letter-spacing:-1.5px;
+  }
+
+  .hero-description{
+    font-size:.88rem;
+  }
+
+  .battle-scene{
+    height:230px;
+    border-radius:25px;
+  }
+
+  .warrior{
+    font-size:7rem;
+    bottom:25px;
+  }
+
+  .sword{
+    font-size:2rem;
+  }
+
+  .vs{
+    font-size:2rem;
+  }
+
+  .features{
+    grid-template-columns:1fr;
+    gap:15px;
+  }
+
+  .card{
+    min-height:auto;
+  }
+
+  .card:nth-child(1),
+  .card:nth-child(2),
+  .card:nth-child(3),
+  .card:nth-child(4){
+    transform:none;
+  }
+
+}
+
+@media(max-width:430px){
+
+  nav{
+    padding:20px 0;
+  }
+
+  .logo{
+    font-size:1.15rem;
+  }
+
+  .badge{
+    font-size:.6rem;
+    padding:7px 11px;
+  }
+
+  .hero{
+    padding-top:28px;
+  }
+
+  .kicker{
+    font-size:.6rem;
+  }
+
+  .hero h1{
+    font-size:2.6rem;
+  }
+
+  .battle-scene{
+    height:190px;
+  }
+
+  .warrior{
+    font-size:5.5rem;
+  }
+
+  .sword{
+    font-size:1.5rem;
+  }
+
+  .vs{
+    font-size:1.5rem;
+  }
+
+  .lab-button{
+    width:100%;
+  }
+
+  .warning{
+    padding:0 20px;
+  }
+
+}
+
+@media(prefers-reduced-motion:reduce){
+
+  *,
+  *::before{
+    animation:none !important;
+    transition:none !important;
+  }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div
+  class="letter-field"
+  id="letterField"
+  aria-hidden="true">
 </div>
 
 
+<div class="page">
 
-<div class="lab-badge">
-
-    🧪 BATTLE LAB
-
-</div>
-
-</nav><!-- HEADER --><header class="header"><h1>
-
-    READY TO
-
-    <span class="pink">START A WAR?</span>
-
-</h1>
+<div class="container">
 
 
+<nav>
 
-<p>
+  <div class="logo">
 
-    Give us some text. Pick two letters.
+    LETTER
+    <span>BATTLE ROYALE</span>
 
-    <br>
+  </div>
 
-    We will make them fight for absolutely no reason.
+  <div class="badge">
 
-</p>
+    100% unnecessary
 
-</header><main class="container"><div class="battle-card"><!-- TEXT INPUT --><section class="text-section"><h2 class="text-heading">
+  </div>
 
-    <span class="purple">
+</nav>
 
-        THROW SOME TEXT INTO THE ARENA
 
+
+<section class="hero">
+
+
+  <div class="kicker">
+
+    ✦ WELCOME TO THE MOST POINTLESS WAR EVER!!!
+
+  </div>
+
+
+  <!-- ONLY HERO TITLE CHANGED -->
+
+  <h1>
+
+    LET THE WAR
+
+    <span class="pink">
+      BEGIN.
     </span>
 
-</h2>
-
-
-
-<p class="section-text">
-
-    We need something for the letters to fight over.
-
-    Give them some text. We promise not to judge it.
-
-</p>
-
-
-
-<div class="funny-note">
-
-    🗣️ THE LETTERS HAVE REQUESTED FOOD.
-
     <br>
 
-    Feed them some text before they start eating each other.
+    <span class="purple">
+      MAY THE USELESS WIN.
+    </span>
 
-</div>
-
-
-
-<div class="textarea-wrapper">
+  </h1>
 
 
+  <div class="tagline">
 
-    <textarea
+    No peace.
 
-        id="battleText"
+    <span>No purpose.</span>
 
-        placeholder="DROP YOUR TEXT HERE...
+    Just letters.
 
-A story.
+  </div>
 
-An assignment.
 
-A suspiciously long paragraph.
+  <p class="hero-description">
 
-A WhatsApp argument.
+    Throw letters into battle,
+    watch them fight for absolutely nothing,
+    demand a rematch when you disagree,
+    and keep the chaos going until
+    someone becomes the alphabet's
+    completely unnecessary champion.
 
-Your last Google search.
-
-Literally ANYTHING.
-
-The letters are getting impatient... 👁️"
-
-></textarea>
+  </p>
 
 
 
-</div>
+  <div class="battle-scene">
 
 
-
-<p class="small-note">
-
-    🧠 Grammar doesn't matter. Nobody is grading this.
-
-</p>
+    <div class="battle-title">
+      ⚔️ THE WAR BEGINS
+    </div>
 
 
+    <div class="background-letter bl1">
+      B
+    </div>
 
-<p class="small-note">
+    <div class="background-letter bl2">
+      R
+    </div>
 
-    ⚠️ Text may not survive.
+    <div class="background-letter bl3">
+      T
+    </div>
 
-</p>
+    <div class="background-letter bl4">
+      S
+    </div>
 
-</section><div class="divider"></div><!-- CHOOSE WARRIORS --><section class="warrior-section"><h2 class="warrior-title">
-
-    ⚔️ CHOOSE YOUR
-
-    <span class="pink">WARRIORS</span>
-
-</h2>
-
-
-
-<p class="section-text">
-
-    Pick two letters.
-
-    <br>
-
-    Their entire career depends on this.
-
-</p>
+    <div class="background-letter bl5">
+      X
+    </div>
 
 
+    <div class="warrior warrior-a">
+      A
+    </div>
 
-<div class="warriors">
+    <div class="warrior warrior-e">
+      E
+    </div>
 
 
+    <div class="sword sword-left">
+      ⚔️
+    </div>
 
-    <input
-
-        type="text"
-
-        maxlength="1"
-
-        id="letter1"
-
-        class="letter-input"
-
-        placeholder="A"
-
-    >
-
+    <div class="sword sword-right">
+      ⚔️
+    </div>
 
 
     <div class="vs">
-
-        VS
-
+      VS
     </div>
 
 
-
-    <input
-
-        type="text"
-
-        maxlength="1"
-
-        id="letter2"
-
-        class="letter-input"
-
-        placeholder="B"
-
-    >
+  </div>
 
 
+
+  <!-- ONLY FIRST BUTTON CHANGED -->
+
+  <button
+    class="lab-button"
+    onclick="enterBattle()">
+
+    ⚔️ LET'S BEGIN THE BATTLE
+
+  </button>
+
+
+  <div class="warning">
+
+    ⚠ Side effects may include
+    <span>unnecessary competitive behaviour.</span>
+
+  </div>
+
+
+</section>
+
+
+
+<div class="section-title">
+
+  <small>
+    Things nobody requested
+  </small>
+
+  <h2>
+    Welcome to the nonsense.
+  </h2>
 
 </div>
 
 
 
-<div class="warning">
-
-    ⚠️ PICK TWO DIFFERENT LETTERS.
-
-    <br>
-
-    NO CHEATING. NO PEACE TREATIES.
-
-</div>
+<section class="features">
 
 
+  <div class="card">
 
-<button
-
-    class="main-button"
-
-    onclick="startBattle()"
-
->
-
-    ⚔️ START THE WAR ⚔️
-
-</button>
-
-</section><!-- FIRST RESULT --><sectionclass="result-section"
-
-id="resultSection"
-
-> 
-
-<h2 class="result-title">
-
-    💥 THE RESULT IS IN
-
-</h2>
-
-
-
-<div class="winner-box" id="winnerBox">
-
-
-
-    <div
-
-        class="winner-letter"
-
-        id="winnerLetter"
-
-    >
-
-        A
-
+    <div class="card-icon">
+      ⚔️
     </div>
 
-
-
-    <div
-
-        class="winner-text"
-
-        id="winnerText"
-
-    >
-
-        HAS WON!
-
-    </div>
-
-
-
-    <p
-
-        class="loser-text"
-
-        id="loserText"
-
-    ></p>
-
-
-
-</div>
-
-</section><!-- TOURNAMENT --><sectionclass="tournament-section"
-
-id="tournamentSection"
-
-> 
-
-<h2 class="tournament-title">
-
-    🏟️ ENTER THE
-
-    <span class="purple">TOURNAMENT</span>
-
-</h2>
-
-
-
-<p class="tournament-description">
-
-    One battle wasn't enough.
-
-    <br>
-
-    The winner now has to fight FOUR MORE LETTERS.
-
-    <br>
-
-    Because apparently we have nothing better to do.
-
-</p>
-
-
-
-<button
-
-    class="main-button tournament-button"
-
-    onclick="startTournament()"
-
->
-
-    🏟️ ENTER THE TOURNAMENT
-
-</button>
-
-
-
-<div
-
-    id="tournamentBattle"
-
-    style="display:none; margin-top:35px;"
-
->
-
-
-
-    <div class="round-info">
-
-
-
-        <div class="round-number">
-
-            ROUND
-
-            <span id="roundNumber">2</span>
-
-            / 5
-
-        </div>
-
-
-
-        <div>
-
-            CURRENT CHAMPION
-
-        </div>
-
-
-
-        <div
-
-            class="current-champion"
-
-            id="currentChampion"
-
-        >
-
-            A
-
-        </div>
-
-
-
-        <div>
-
-            VS
-
-        </div>
-
-
-
-        <input
-
-            type="text"
-
-            maxlength="1"
-
-            id="challengerInput"
-
-            class="challenger-input"
-
-            placeholder="?"
-
-        >
-
-
-
-        <p style="font-size:13px;font-weight:700;">
-
-            Choose a NEW letter to challenge the champion.
-
-        </p>
-
-
-
-    </div>
-
-
-
-    <div class="challenger-area">
-
-
-
-        <button
-
-            class="main-button fight-button"
-
-            onclick="fightTournamentRound()"
-
-        >
-
-            ⚔️ FIGHT!
-
-        </button>
-
-
-
-    </div>
-
-
-
-    <div
-
-        class="fight-message"
-
-        id="fightMessage"
-
-    ></div>
-
-
-
-</div>
-
-</section><!-- TOP FIVE --><sectionclass="top-five"
-
-id="topFive"
-
-> 
-
-<h2 class="top-title">
-
-    🏆 THE
-
-    <span class="yellow">LETTER BOARD</span>
-
-</h2>
-
-
-
-<p class="top-subtitle">
-
-    Six letters entered.
-
-    <br>
-
-    Only five get bragging rights.
-
-</p>
-
-
-
-<div
-
-    class="ranking-list"
-
-    id="rankingList"
-
-></div>
-
-
-
-<div class="final-message">
-
-    🎉 CONGRATULATIONS TO THE TOP 5!
-
-    <br><br>
-
-    Your achievement is completely meaningless.
-
-    <br>
-
-    But we are still proud of you. 😭
-
-</div>
-
-
-
-<!-- ZODIAC -->
-
-
-
-<div
-
-    class="letter-zodiac"
-
-    id="letterZodiac"
-
->
-
-
-
-    <h2 class="zodiac-title">
-
-        🔮 WELCOME TO THE
-
-        <span class="pink">
-
-            LETTER ZODIAC
-
-        </span>
-
-    </h2>
-
-
-
-    <p class="zodiac-subtitle">
-
-        Your Top 5 letters have been analysed by
-
-        absolutely nobody qualified.
-
-        <br><br>
-
-        Here is what their personalities apparently
-
-        say about them.
-
+    <h3>
+      Letter War
+    </h3>
+
+    <p>
+      Throw your letters into battle
+      and discover which one has the
+      audacity to call itself a champion.
     </p>
 
-
-
-    <div
-
-        class="zodiac-grid"
-
-        id="zodiacGrid"
-
-    ></div>
+  </div>
 
 
 
-    <div class="zodiac-final">
+  <div class="card">
 
-
-
-        🧠 Remember:
-
-
-
-        <br><br>
-
-
-
-        These personalities are completely made up.
-
-
-
-        <br>
-
-
-
-        The letters did NOT approve this psychological evaluation. 😭
-
-
-
+    <div class="card-icon">
+      🔥
     </div>
 
+    <h3>
+      Rematch
+    </h3>
 
+    <p>
+      Didn't like the result?
 
-</div>
+      Obviously the alphabet cheated.
 
-
-
-<!-- EXPERIENCE SHARING -->
-
-
-
-<div
-
-    class="interview-section"
-
-    id="interviewSection"
-
->
-
-
-
-    <h2 class="interview-title">
-
-        🎤 WELCOME TO
-
-        <span class="pink">
-
-            EXPERIENCE SHARING
-
-        </span>
-
-    </h2>
-
-
-
-    <p class="interview-subtitle">
-
-        The battle is over.
-
-        <br>
-
-        Now the survivors must explain themselves.
-
-        <br>
-
-        Our highly qualified reporters are ready.
-
-        (They are not qualified.)
-
+      Pick more letters and fight again.
     </p>
 
-
-
-    <div
-
-        class="interview-buttons"
-
-        id="interviewButtons"
-
-    >
+  </div>
 
 
 
-        <button
+  <!-- FUNNY ZODIAC FEATURE KEPT -->
 
-            class="interview-choice winner-choice"
+  <div class="card">
 
-            onclick="showWinnerInterview()"
-
-        >
-
-            👑 WINNER INTERVIEW
-
-        </button>
-
-
-
-        <button
-
-            class="interview-choice loser-choice"
-
-            onclick="showLoserInterview()"
-
-        >
-
-            💀 LOSER EXIT INTERVIEW
-
-        </button>
-
-
-
+    <div class="card-icon">
+      🔮
     </div>
 
+    <h3>
+      Letter Zodiac
+    </h3>
 
+    <p>
+      Find out what the stars say about
+      your letter — because apparently
+      even alphabets need personality issues.
+    </p>
 
-    <!-- INTERVIEW CARD -->
+  </div>
 
 
 
-    <div
+  <div class="card">
 
-        class="interview-card"
-
-        id="interviewCard"
-
-    >
-
-
-
-        <div class="interview-person">
-
-
-
-            <div
-
-                class="interview-character-area"
-
-                id="interviewCharacterArea"
-
-            >
-
-
-
-                <div
-
-                    class="letter-character"
-
-                    id="letterCharacter"
-
-                >
-
-
-
-                    <div class="character-eye left"></div>
-
-                    <div class="character-eye right"></div>
-
-
-
-                    <div
-
-                        class="character-letter"
-
-                        id="characterLetter"
-
-                    >
-
-                        E
-
-                    </div>
-
-
-
-                    <div
-
-                        class="character-mouth"
-
-                        id="characterMouth"
-
-                    ></div>
-
-
-
-                </div>
-
-
-
-            </div>
-
-
-
-            <div
-
-                class="interview-letter"
-
-                id="interviewLetter"
-
-                style="display:none;"
-
-            >
-
-                E
-
-            </div>
-
-
-
-            <div
-
-                class="interview-role"
-
-                id="interviewRole"
-
-            >
-
-                THE WINNER
-
-            </div>
-
-
-
-            <div
-
-                class="interview-score"
-
-                id="interviewScore"
-
-            ></div>
-
-
-
-        </div>
-
-
-
-        <div
-
-            class="interactive-interview"
-
-            id="interactiveInterview"
-
-        >
-
-
-
-            <div
-
-                class="question-counter"
-
-                id="questionCounter"
-
-            >
-
-                🎤 QUESTIONS USED: 0 / 3
-
-            </div>
-
-
-
-            <div
-
-                class="interactive-chat"
-
-                id="interactiveChat"
-
-            ></div>
-
-
-
-            <div class="interactive-question-area">
-
-
-
-                <div class="question-input-row">
-
-
-
-                    <input
-
-                        type="text"
-
-                        id="questionInput"
-
-                        class="question-input"
-
-                        maxlength="200"
-
-                        placeholder="Ask anything... the letter will regret this."
-
-                    >
-
-
-
-                    <button
-
-                        class="ask-question-button"
-
-                        id="askQuestionButton"
-
-                        onclick="askQuestion()"
-
-                    >
-
-                        ASK 🎤
-
-                    </button>
-
-
-
-                </div>
-
-
-
-            </div>
-
-
-
-            <button
-
-                class="main-button interview-final-button"
-
-                id="interviewFinalButton"
-
-                onclick="showFinalInterviewMessage()"
-
-            >
-
-                🚨 WAIT... SOMETHING IS VERY WRONG
-
-            </button>
-
-
-
-            <div
-
-                class="interview-ending"
-
-                id="interactiveInterviewEnding"
-
-                style="display:none;"
-
-            ></div>
-
-
-
-        </div>
-
-
-
-        <div
-
-            id="interviewQuestions"
-
-            style="display:none;"
-
-        ></div>
-
-
-
-        <div
-
-            class="interview-ending"
-
-            id="interviewEnding"
-
-            style="display:none;"
-
-        ></div>
-
-
-
+    <div class="card-icon">
+      👑
     </div>
 
+    <h3>
+      The Final Boss
+    </h3>
 
+    <p>
+      Every tournament eventually reaches
+      the most powerful entity known to mankind:
+
+      CAN YOU GUESS?
+    </p>
+
+  </div>
+
+
+</section>
+
+
+
+<div class="quote">
+
+  <p>
+
+    “E appeared 412 times.
+
+    At this point,
+    E basically owns this document.”
+
+  </p>
+
+  <span>
+
+    — Letter Battle Royale Research Department
+    (there is no department)
+
+  </span>
 
 </div>
 
-</section></div></main><script>
-  
-
-  
-/* ================= GLOBAL VARIABLES ================= */
-  
-
-  
-let battleText = "";
-  
-let currentChampion = "";
-  
-let currentRound = 0;
-  
-let tournamentLetters = [];
-  
-let letterCounts = {};
-  
-let finalSortedLetters = [];
-  
-
-  
-let interviewType = "";
-  
-let interviewQuestionCount = 0;
-  
-let interviewLetter = "";
-  
-
-  
-/* ================= ZODIAC ================= */
-  
-
-  
-const letterZodiac = {
-  
-
-  
-A: "Extroverted overachiever. Always insists on going first. Secretly insecure.",
-  
-B: "Bulky and double-jointed. Thinks it's better than lowercase 'b'.",
-  
-C: "Constantly confused between making an 'S' or 'K' sound. Needs therapy.",
-  
-D: "Thick and dependable. Excellent at starting arguments.",
-  
-E: "Total show-off. Shows up in every single English sentence uninvited.",
-  
-F: "Aggressive energy. Loves keyboard rage-quits.",
-  
-G: "Secretly plotting to replace J. Sneaky.",
-  
-H: "Just wants to breathe. Often silent just to annoy language learners.",
-  
-I: "Egotistical. Always capitalized when talking about itself.",
-  
-J: "Has an identity crisis. Thinks it's a hook.",
-  
-K: "Sharp edges. Refuses to cooperate in 'knife' or 'knight'.",
-  
-L: "Simple, upright, judging all the curved letters.",
-  
-M: "Looks like two mountains or a very tired bat. Highly dramatic.",
-  
-N: "The understudy of M. Always waiting for M to get sick.",
-  
-O: "Zero thoughts, head empty, completely round.",
-  
-P: "Top-heavy. Prone to tipping over in high winds.",
-  
-Q: "Co-dependent. Refuses to go anywhere without U.",
-  
-R: "Aggressive pirate tendencies. Rolls around too much.",
-  
-S: "Hissy and slippery. Always causing plural drama.",
-  
-T: "Standing with arms wide open, ready to block vowels.",
-  
-U: "Constantly stuck babysitting Q.",
-  
-V: "Edgy, sharp, probably listens to indie rock.",
-  
-W: "Literally just two V's in a trench coat pretending to be one letter.",
-  
-X: "Mysterious. Refuses to reveal its true value until algebra class.",
-  
-Y: "Commitment issues. Can't decide if it's a vowel or a consonant.",
-  
-Z: "Sleeping all the time (zzz). The absolute final boss of the alphabet."
-  
-
-  
-};
-  
-
-  
-function getZodiacTitle(letter) {
-  
-
-  
-const titles = {
-  
-
-  
-A: "The Overachiever",
-  
-B: "The Bully",
-  
-C: "The Confused One",
-  
-D: "The Argument Starter",
-  
-E: "The Show-Off",
-  
-F: "The Rage Quitter",
-  
-G: "The Plotter",
-  
-H: "The Silent One",
-  
-I: "The Ego",
-  
-J: "The Identity Crisis",
-  
-K: "The Rebel",
-  
-L: "The Judge",
-  
-M: "The Drama Queen",
-  
-N: "The Understudy",
-  
-O: "The Empty Brain",
-  
-P: "The Wobbler",
-  
-Q: "The Dependent",
-  
-R: "The Pirate",
-  
-S: "The Trouble Maker",
-  
-T: "The Vowel Blocker",
-  
-U: "The Babysitter",
-  
-V: "The Edgelord",
-  
-W: "The Impostor",
-  
-X: "The Mystery",
-  
-Y: "The Indecisive",
-  
-Z: "The Final Boss"
-  
-
-  
-};
-  
-
-  
-return titles[letter];
-  
-
-  
-}
-  
-
-  
-/* ================= COUNT ================= */
-  
-
-  
-function countLetter(text, letter) {
-  
-
-  
-let count = 0;
-  
-
-  
-for (let i = 0; i < text.length; i++) {
-  
-
-  
-if (text[i].toUpperCase() === letter) {
-  
-count++;
-  
-}
-  
-
-  
-}
-  
-
-  
-return count;
-  
-
-  
-}
-  
-
-  
-/* =========================================================
-  
-   WINNER ANNOUNCEMENT EFFECT
-  
-========================================================= */
-  
-
-  
-function showWinnerAnnouncement(winner, loser) {
-  
-
-  
-const overlay =
-  
-document.getElementById("announcementOverlay");
-  
-
-  
-const small =
-  
-document.getElementById("announcementSmall");
-  
-
-  
-const count =
-  
-document.getElementById("announcementCount");
-  
-
-  
-const main =
-  
-document.getElementById("announcementMain");
-  
-
-  
-const letter =
-  
-document.getElementById("announcementLetter");
-  
-
-  
-const subtitle =
-  
-document.getElementById("announcementSubtitle");
-  
-
-  
-overlay.classList.add("show");
-  
-
-  
-small.style.display = "block";
-  
-count.style.display = "block";
-  
-main.style.display = "none";
-  
-letter.style.display = "none";
-  
-subtitle.style.display = "none";
-  
-
-  
-count.textContent = "3";
-  
-
-  
-setTimeout(function() {
-  
-count.textContent = "2";
-  
-}, 650);
-  
-
-  
-setTimeout(function() {
-  
-count.textContent = "1";
-  
-}, 1300);
-  
-
-  
-setTimeout(function() {
-  
-
-  
-count.style.display = "none";
-  
-small.style.display = "none";
-  
-
-  
-main.style.display = "block";
-  
-
-  
-}, 1950);
-  
-
-  
-setTimeout(function() {
-  
-
-  
-main.style.display = "none";
-  
-
-  
-letter.textContent = winner;
-  
-letter.style.display = "block";
-  
-
-  
-subtitle.textContent =
-  
-winner +
-  
-" HAS ABSOLUTELY DESTROYED " +
-  
-loser +
-  
-" 💀";
-  
-
-  
-subtitle.style.display = "block";
-  
-
-  
-createConfetti();
-  
-createExplosion();
-  
-
-  
-}, 2700);
-  
-
-  
-setTimeout(function() {
-  
-
-  
-overlay.classList.remove("show");
-  
 
-  
-document
-  
-.getElementById("winnerBox")
-  
-.classList.add("winner-celebration");
-  
-
-  
-}, 4300);
-  
-
-  
-}
-  
-
-  
-/* =========================================================
-  
-   CONFETTI
-  
-========================================================= */
-  
-
-  
-function createConfetti() {
-  
-
-  
-const pieces = 80;
-  
-
-  
-for (let i = 0; i < pieces; i++) {
-  
-
-  
-const confetti =
-  
-document.createElement("div");
-  
-
-  
-confetti.className = "confetti";
-  
-
-  
-confetti.style.left =
-  
-Math.random() * 100 + "vw";
-  
-
-  
-confetti.style.top =
-  
--30 + "px";
-  
-
-  
-confetti.style.background =
-  
-[
-  
-"#ff4f9a",
-  
-"#d8ff65",
-  
-"#ffcf4a",
-  
-"#7c4dff",
-  
-"#c9f4ff"
-  
-][Math.floor(Math.random() * 5)];
-  
-
-  
-confetti.style.transform =
-  
-"rotate(" +
-  
-Math.random() * 360 +
-  
-"deg)";
-  
-
-  
-confetti.style.animationDelay =
-  
-Math.random() * 0.8 + "s";
-  
-
-  
-document.body.appendChild(confetti);
-  
-
-  
-setTimeout(function() {
-  
-confetti.remove();
-  
-}, 3500);
-  
-
-  
-}
-  
-
-  
-}
-  
-
-  
-/* =========================================================
-  
-   EXPLOSION
-  
-========================================================= */
-  
-
-  
-function createExplosion() {
-  
-
-  
-const particles = 35;
-  
-
-  
-for (let i = 0; i < particles; i++) {
-  
-
-  
-const particle =
-  
-document.createElement("div");
-  
-
-  
-particle.className =
-  
-"explosion-particle";
-  
-
-  
-particle.style.left = "50%";
-  
-particle.style.top = "50%";
-  
-
-  
-particle.style.background =
-  
-[
-  
-"#ff4f9a",
-  
-"#d8ff65",
-  
-"#ffcf4a",
-  
-"#7c4dff"
-  
-][Math.floor(Math.random() * 4)];
-  
-
-  
-const angle =
-  
-Math.random() * Math.PI * 2;
-  
 
-  
-const distance =
-  
-100 + Math.random() * 300;
-  
-
-  
-particle.style.setProperty(
-  
-"--x",
-  
-Math.cos(angle) * distance + "px"
-  
-);
-  
-
-  
-particle.style.setProperty(
-  
-"--y",
-  
-Math.sin(angle) * distance + "px"
-  
-);
-  
-
-  
-document.body.appendChild(particle);
-  
-
-  
-setTimeout(function() {
-  
-particle.remove();
-  
-}, 1000);
-  
-
-  
-}
-  
-
-  
-}
-  
-
-  
-/* =========================================================
-  
-   LOSER EFFECT
-  
-========================================================= */
-  
-
-  
-function showLoserEffect() {
-  
-
-  
-const message =
-  
-document.getElementById("eliminatedMessage");
-  
-
-  
-message.classList.add("show");
-  
-
-  
-document.body.classList.add("battle-shake");
-  
-
-  
-setTimeout(function() {
-  
-
-  
-message.classList.remove("show");
-  
-document.body.classList.remove("battle-shake");
-  
+<section class="final">
 
-  
-}, 1600);
-  
+  <h2>
+    Ready to waste
+    some time?
+  </h2>
 
-  
-}
-  
+  <p>
+    Your letters are waiting
+    to unnecessarily destroy each other.
+  </p>
 
-  
-/* ================= FIRST BATTLE ================= */
-  
 
-  
-function startBattle() {
+  <!-- BOTTOM BUTTON KEPT AS ENTER THE LAB -->
+<button class="lab-button" onclick="enterBattle()">
+    🔬 ENTER THE LAB
+</button>
   
+</section>
 
-  
-battleText =
-  
-document.getElementById("battleText").value;
-  
 
-  
-let letter1 =
-  
-document.getElementById("letter1").value.toUpperCase();
-  
 
-  
-let letter2 =
-  
-document.getElementById("letter2").value.toUpperCase();
-  
+<footer>
 
-  
-if (battleText.trim() === "") {
-  
+  Built for the Useless Projects Hackathon.
 
-  
-alert(
-  
-"🚨 THE LETTERS ARE HUNGRY! GIVE THEM SOME TEXT!"
-  
-);
-  
+  <br>
 
-  
-return;
-  
-}
-  
+  No letters were emotionally supported
+  during development.
 
-  
-if (!/^[A-Z]$/.test(letter1) ||
-  
-!/^[A-Z]$/.test(letter2)) {
-  
+</footer>
 
-  
-alert(
-  
-"⚠️ PICK TWO ACTUAL LETTERS!"
-  
-);
-  
 
-  
-return;
-  
-}
-  
+</div>
+</div>
 
-  
-if (letter1 === letter2) {
-  
 
-  
-alert(
-  
-"😭 THEY CANNOT FIGHT THEMSELVES. PICK TWO DIFFERENT LETTERS!"
-  
-);
-  
 
-  
-return;
-  
-}
-  
+<script>
 
-  
-let count1 =
-  
-countLetter(battleText, letter1);
-  
+const field =
+  document.getElementById("letterField");
 
-  
-let count2 =
-  
-countLetter(battleText, letter2);
-  
+const alphabet =
+  "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-  
-letterCounts = {};
-  
+const colors = [
 
-  
-letterCounts[letter1] = count1;
-  
-letterCounts[letter2] = count2;
-  
+  "#7652D6",
+  "#FF6FAE",
+  "#FFD84D",
+  "#76E3B5",
+  "#FF9563"
 
-  
-tournamentLetters = [
-  
-letter1,
-  
-letter2
-  
 ];
-  
 
-  
-let winner;
-  
-let loser;
-  
 
-  
-if (count1 >= count2) {
-  
+for(let i = 0; i < 35; i++){
 
-  
-currentChampion = letter1;
-  
+  const letter =
+    document.createElement("span");
 
-  
-winner = letter1;
-  
-loser = letter2;
-  
+  letter.textContent =
+    alphabet[
+      Math.floor(
+        Math.random() *
+        alphabet.length
+      )
+    ];
 
-  
-document
-  
-.getElementById("winnerLetter")
-  
-.textContent = letter1;
-  
+  letter.style.left =
+    Math.random() * 100 + "%";
 
-  
-document
-  
-.getElementById("winnerText")
-  
-.textContent =
-  
-letter1 + " HAS WON!";
-  
+  letter.style.top =
+    Math.random() * 100 + "%";
 
-  
-document
-  
-.getElementById("loserText")
-  
-.textContent =
-  
-letter1 + " had " + count1 +
-  
-" appearances. " +
-  
-letter2 + " had " + count2 +
-  
-". Please send emotional support to " +
-  
-letter2 + ". 😭";
-  
+  letter.style.fontSize =
+    (25 + Math.random() * 60) + "px";
 
-  
-} else {
-  
+  letter.style.color =
+    colors[
+      Math.floor(
+        Math.random() *
+        colors.length
+      )
+    ];
 
-  
-currentChampion = letter2;
-  
+  const rotation =
+    Math.floor(
+      Math.random() * 40 - 20
+    );
 
-  
-winner = letter2;
-  
-loser = letter1;
-  
+  letter.style.setProperty(
+    "--rotation",
+    rotation + "deg"
+  );
 
-  
-document
-  
-.getElementById("winnerLetter")
-  
-.textContent = letter2;
-  
+  letter.style.animationDelay =
+    Math.random() * 4 + "s";
 
-  
-document
-  
-.getElementById("winnerText")
-  
-.textContent =
-  
-letter2 + " HAS WON!";
-  
+  letter.style.animationDuration =
+    (3 + Math.random() * 4) + "s";
 
-  
-document
-  
-.getElementById("loserText")
-  
-.textContent =
-  
-letter2 + " had " + count2 +
-  
-" appearances. " +
-  
-letter1 + " had " + count1 +
-  
-". Please send emotional support to " +
-  
-letter1 + ". 😭";
-  
+  field.appendChild(letter);
 
-  
 }
-  
 
-  
-document
-  
-.getElementById("resultSection")
-  
-.classList.add("show");
-  
+function enterBattle() {
 
-  
-document
-  
-.getElementById("tournamentSection")
-  
-.classList.add("show");
-  
+  window.location.href = "home.html";
 
-  
-/* NEW EFFECT */
-  
-
-  
-document.body.classList.add("battle-shake");
-  
-
-  
-setTimeout(function() {
-  
-
-  
-document.body.classList.remove("battle-shake");
-  
-
-  
-showLoserEffect();
-  
-
-  
-}, 450);
-  
-
-  
-setTimeout(function() {
-  
-
-  
-showWinnerAnnouncement(
-  
-winner,
-  
-loser
-  
-);
-  
-
-  
-}, 1900);
-  
-
-  
-setTimeout(function() {
-  
-
-  
-document
-  
-.getElementById("resultSection")
-  
-.scrollIntoView({
-  
-behavior: "smooth"
-  
-});
-  
-
-  
-}, 4500);
-  
-
-  
 }
-  
 
-  
-/* ================= TOURNAMENT START ================= */
-  
 
-  
-function startTournament() {
-  
+</script>
 
-  
-currentRound = 2;
-  
+</body>
 
-  
-document
-  
-.getElementById("tournamentBattle")
-  
-.style.display = "block";
-  
-
-  
-document
-  
-.getElementById("roundNumber")
-  
-.textContent =
-  
-currentRound;
-  
-
-  
-document
-  
-.getElementById("currentChampion")
-  
-.textContent =
-  
-currentChampion;
-  
-
-  
-document
-  
-.getElementById("challengerInput")
-  
-.value = "";
-  
-
-  
-document
-  
-.getElementById("fightMessage")
-  
-.textContent =
-  
-"⚔️ A NEW CHALLENGER APPROACHES...";
-  
-
-  
-document
-  
-.getElementById("tournamentBattle")
-  
-.scrollIntoView({
-  
-behavior: "smooth"
-  
-});
-  
-
-  
-}
-  
-
-  
-/* ================= TOURNAMENT ROUND ================= */
-  
-
-  
-function fightTournamentRound() {
-  
-
-  
-let challenger =
-  
-document
-  
-.getElementById("challengerInput")
-  
-.value
-  
-.toUpperCase();
-  
-
-  
-if (!/^[A-Z]$/.test(challenger)) {
-  
-
-  
-alert(
-  
-"⚠️ ENTER ONE LETTER!"
-  
-);
-  
-
-  
-return;
-  
-}
-  
-
-  
-if (tournamentLetters.includes(challenger)) {
-  
-
-  
-alert(
-  
-"🚨 THAT LETTER ALREADY FOUGHT!\n\nPICK A NEW LETTER."
-  
-);
-  
-
-  
-return;
-  
-}
-  
-
-  
-let challengerCount =
-  
-countLetter(
-  
-battleText,
-  
-challenger
-  
-);
-  
-
-  
-letterCounts[challenger] =
-  
-challengerCount;
-  
-
-  
-tournamentLetters.push(
-  
-challenger
-  
-);
-  
-
-  
-let championCount =
-  
-letterCounts[currentChampion];
-  
-
-  
-let oldChampion =
-  
-currentChampion;
-  
-
-  
-if (challengerCount > championCount) {
-  
-
-  
-currentChampion =
-  
-challenger;
-  
-
-  
-document
-  
-.getElementById("fightMessage")
-  
-.textContent =
-  
-"💥 UPSET!!! " +
-  
-challenger +
-  
-" DEFEATED THE CHAMPION!";
-  
-
-  
-} else {
-  
-
-  
-document
-  
-.getElementById("fightMessage")
-  
-.textContent =
-  
-"😂 " +
-  
-currentChampion +
-  
-" DESTROYED " +
-  
-challenger +
-  
-"!";
-  
-
-  
-}
-  
-
-  
-/* TOURNAMENT EFFECT */
-  
-
-  
-const champion =
-  
-document.getElementById(
-  
-"currentChampion"
-  
-);
-  
-
-  
-champion.classList.remove(
-  
-"tournament-impact"
-  
-);
-  
-
-  
-void champion.offsetWidth;
-  
-
-  
-champion.classList.add(
-  
-"tournament-impact"
-  
-);
-  
-
-  
-document.body.classList.add(
-  
-"battle-shake"
-  
-);
-  
-
-  
-setTimeout(function() {
-  
-
-  
-document.body.classList.remove(
-  
-"battle-shake"
-  
-);
-  
-
-  
-}, 450);
-  
-
-  
-/* If challenger wins */
-  
-
-  
-if (challengerCount > championCount) {
-  
-
-  
-setTimeout(function() {
-  
-
-  
-showLoserEffect();
-  
-
-  
-}, 500);
-  
-
-  
-}
-  
-
-  
-/* If champion wins */
-  
-
-  
-else {
-  
-
-  
-setTimeout(function() {
-  
-
-  
-createConfetti();
-  
-
-  
-}, 400);
-  
-
-  
-}
-  
-
-  
-document
-  
-.getElementById("currentChampion")
-  
-.textContent =
-  
-currentChampion;
-  
-
-  
-if (tournamentLetters.length >= 6) {
-  
-
-  
-setTimeout(
-  
-finishTournament,
-  
-1200
-  
-);
-  
-
-  
-return;
-  
-}
-  
-
-  
-currentRound++;
-  
-
-  
-document
-  
-.getElementById("roundNumber")
-  
-.textContent =
-  
-currentRound;
-  
-
-  
-document
-  
-.getElementById("challengerInput")
-  
-.value = "";
-  
-
-  
-}
-  
-
-  
-/* ================= FINISH TOURNAMENT ================= */
-  
-
-  
-function finishTournament() {
-  
-
-  
-finalSortedLetters =
-  
-Object.keys(letterCounts)
-  
-.sort(function(a, b) {
-  
-
-  
-return letterCounts[b] -
-  
-letterCounts[a];
-  
-
-  
-});
-  
-
-  
-let topFive =
-  
-finalSortedLetters.slice(0, 5);
-  
-
-  
-let rankingList =
-  
-document.getElementById(
-  
-"rankingList"
-  
-);
-  
-
-  
-rankingList.innerHTML = "";
-  
-
-  
-topFive.forEach(
-  
-function(letter, index) {
-  
-
-  
-let card =
-  
-document.createElement("div");
-  
-
-  
-card.className =
-  
-"ranking-card";
-  
-
-  
-card.innerHTML = `
-  
-
-  
-<div class="rank">
-  
-#${index + 1}
-  
-</div>
-  
-
-  
-<div class="rank-letter">
-  
-${letter}
-  
-</div>
-  
-
-  
-<div class="rank-count">
-  
-${letterCounts[letter]}
-  
-appearances
-  
-</div>
-  
-
-  
-`;
-  
-
-  
-rankingList.appendChild(card);
-  
-
-  
-}
-  
-);
-  
-
-  
-document
-  
-.getElementById("topFive")
-  
-.classList.add("show");
-  
-
-  
-createLetterZodiac(topFive);
-  
-
-  
-document
-  
-.getElementById("interviewSection")
-  
-.classList.add("show");
-  
-
-  
-createConfetti();
-  
-
-  
-document
-  
-.getElementById("topFive")
-  
-.scrollIntoView({
-  
-behavior: "smooth"
-  
-});
-  
-
-  
-}
-  
-
-  
-/* ================= ZODIAC ================= */
-  
-
-  
-function createLetterZodiac(topFive) {
-  
-
-  
-const zodiacGrid =
-  
-document.getElementById(
-  
-"zodiacGrid"
-  
-);
-  
-
-  
-zodiacGrid.innerHTML = "";
-  
-
-  
-topFive.forEach(
-  
-function(letter, index) {
-  
-
-  
-const card =
-  
-document.createElement("div");
-  
-
-  
-card.className =
-  
-"zodiac-card";
-  
-
-  
-card.innerHTML = `
-  
-
-  
-<div class="zodiac-rank">
-  
-TOP ${index + 1} LETTER
-  
-</div>
-  
-
-  
-<span class="zodiac-letter">
-  
-${letter}
-  
-</span>
-  
-
-  
-<span class="zodiac-name">
-  
-${getZodiacTitle(letter)}
-  
-</span>
-  
-
-  
-<p class="zodiac-description">
-  
-${letterZodiac[letter]}
-  
-</p>
-  
-
-  
-`;
-  
-
-  
-zodiacGrid.appendChild(card);
-  
-
-  
-}
-  
-);
-  
-
-  
-document
-  
-.getElementById("letterZodiac")
-  
-.classList.add("show");
-  
-
-  
-}
-  
-
-  
-/* ================= WINNER INTERVIEW ================= */
-  
-
-  
-function showWinnerInterview() {
-  
-
-  
-interviewType = "winner";
-  
-
-  
-interviewQuestionCount = 0;
-  
-
-  
-interviewLetter =
-  
-finalSortedLetters[0];
-  
-
-  
-prepareInteractiveInterview();
-  
-
-  
-document
-  
-.getElementById("interviewRole")
-  
-.textContent =
-  
-"👑 THE FINAL CHAMPION";
-  
-
-  
-document
-  
-.getElementById("interviewScore")
-  
-.textContent =
-  
-letterCounts[interviewLetter] +
-  
-" appearances in the battlefield";
-  
-
-  
-document
-  
-.getElementById("letterCharacter")
-  
-.className =
-  
-"letter-character winner-expression-1";
-  
-
-  
-document
-  
-.getElementById("interactiveInterviewEnding")
-  
-.style.display = "none";
-  
-
-  
-document
-  
-.getElementById("interviewCard")
-  
-.scrollIntoView({
-  
-behavior: "smooth"
-  
-});
-  
-
-  
-}
-  
-
-  
-/* ================= LOSER INTERVIEW ================= */
-  
-
-  
-function showLoserInterview() {
-  
-
-  
-interviewType = "loser";
-  
-
-  
-interviewQuestionCount = 0;
-  
-
-  
-interviewLetter =
-  
-finalSortedLetters[
-  
-finalSortedLetters.length - 1
-  
-];
-  
-
-  
-prepareInteractiveInterview();
-  
-
-  
-document
-  
-.getElementById("interviewRole")
-  
-.textContent =
-  
-"💀 THE LOSER";
-  
-
-  
-document
-  
-.getElementById("interviewScore")
-  
-.textContent =
-  
-letterCounts[interviewLetter] +
-  
-" appearances in the battlefield";
-  
-
-  
-document
-  
-.getElementById("letterCharacter")
-  
-.className =
-  
-"letter-character loser-character loser-expression-1";
-  
-
-  
-document
-  
-.getElementById("interactiveInterviewEnding")
-  
-.style.display = "none";
-  
-
-  
-document
-  
-.getElementById("interviewCard")
-  
-.scrollIntoView({
-  
-behavior: "smooth"
-  
-});
-  
-
-  
-}
-  
-
-  
-/* ================= PREPARE INTERVIEW ================= */
-  
-
-  
-function prepareInteractiveInterview() {
-  
-
-  
-document
-  
-.getElementById("interviewCard")
-  
-.classList.add("show");
-  
-
-  
-document
-  
-.getElementById("interactiveInterview")
-  
-.classList.add("show");
-  
-
-  
-document
-  
-.getElementById("interviewButtons")
-  
-.style.display = "none";
-  
-
-  
-document
-  
-.getElementById("characterLetter")
-  
-.textContent =
-  
-interviewLetter;
-  
-
-  
-document
-  
-.getElementById("interactiveChat")
-  
-.innerHTML = "";
-  
-
-  
-document
-  
-.getElementById("questionInput")
-  
-.value = "";
-  
-
-  
-document
-  
-.getElementById("questionInput")
-  
-.disabled = false;
-  
-
-  
-document
-  
-.getElementById("askQuestionButton")
-  
-.disabled = false;
-  
-
-  
-document
-  
-.getElementById("questionCounter")
-  
-.textContent =
-  
-"🎤 QUESTIONS USED: 0 / 3";
-  
-
-  
-document
-  
-.getElementById("interviewFinalButton")
-  
-.classList.remove("show");
-  
-
-  
-document
-  
-.getElementById("interactiveInterviewEnding")
-  
-.style.display = "none";
-  
-
-  
-}
-  
-
-  
-/* ================= ASK QUESTION ================= */
-  
-
-  
-function askQuestion() {
-  
-
-  
-const input =
-  
-document.getElementById(
-  
-"questionInput"
-  
-);
-  
-
-  
-const question =
-  
-input.value.trim();
-  
-
-  
-if (question === "") {
-  
-
-  
-alert(
-  
-"🎤 ASK AN ACTUAL QUESTION!"
-  
-);
-  
-
-  
-return;
-  
-}
-  
-
-  
-if (interviewQuestionCount >= 3) {
-  
-return;
-  
-}
-  
-
-  
-interviewQuestionCount++;
-  
-
-  
-document
-  
-.getElementById("questionCounter")
-  
-.textContent =
-  
-"🎤 QUESTIONS USED: " +
-  
-interviewQuestionCount +
-  
-" / 3";
-  
-
-  
-input.disabled = true;
-  
-
-  
-document
-  
-.getElementById("askQuestionButton")
-  
-.disabled = true;
-  
-
-  
-const chat =
-  
-document.getElementById(
-  
-"interactiveChat"
-  
-);
-  
-
-  
-const questionBox =
-  
-document.createElement("div");
-  
-
-  
-questionBox.className =
-  
-"chat-question";
-  
-
-  
-questionBox.innerHTML = `
-  
-
-  
-<div class="chat-label">
-  
-🎤 YOU ASKED:
-  
-</div>
-  
-
-  
-<div>
-  
-${escapeHTML(question)}
-  
-</div>
-  
-
-  
-`;
-  
-
-  
-chat.appendChild(questionBox);
-  
-
-  
-changeInterviewExpression();
-  
-
-  
-const typing =
-  
-document.createElement("div");
-  
-
-  
-typing.className =
-  
-"typing-message";
-  
-
-  
-typing.textContent =
-  
-interviewType === "winner"
-  
-?
-  
-"👑 The champion is preparing an unnecessarily confident answer..."
-  
-:
-  
-"💀 The loser is preparing a list of people to blame...";
-  
-
-  
-chat.appendChild(typing);
-  
-
-  
-typing.scrollIntoView({
-  
-behavior: "smooth",
-  
-block: "center"
-  
-});
-  
-
-  
-setTimeout(
-  
-function() {
-  
-
-  
-typing.remove();
-  
-
-  
-const answer =
-  
-getInterviewAnswer(
-  
-interviewType,
-  
-interviewQuestionCount
-  
-);
-  
-
-  
-const answerBox =
-  
-document.createElement("div");
-  
-
-  
-answerBox.className =
-  
-"chat-answer";
-  
-
-  
-answerBox.innerHTML = `
-  
-
-  
-<div class="chat-label">
-  
-${interviewLetter} SAYS:
-  
-</div>
-  
-
-  
-<div>
-  
-${answer}
-  
-</div>
-  
-
-  
-`;
-  
-
-  
-chat.appendChild(answerBox);
-  
-
-  
-if (
-  
-interviewQuestionCount >= 3
-  
-) {
-  
-
-  
-finishInteractiveInterview();
-  
-
-  
-} else {
-  
-
-  
-input.disabled = false;
-  
-
-  
-document
-  
-.getElementById("askQuestionButton")
-  
-.disabled = false;
-  
-
-  
-input.focus();
-  
-
-  
-}
-  
-
-  
-answerBox.scrollIntoView({
-  
-behavior: "smooth",
-  
-block: "center"
-  
-});
-  
-
-  
-},
-  
-1100
-  
-);
-  
-
-  
-}
-  
-
-  
-/* ================= ANSWERS ================= */
-  
-
-  
-function getInterviewAnswer(
-  
-type,
-  
-questionNumber
-  
-) {
-  
-
-  
-if (questionNumber === 3) {
-  
-
-  
-if (type === "winner") {
-  
-
-  
-return "I am so busy, sorry!!!";
-  
-
-  
-}
-  
-
-  
-return "no one likes me";
-  
-
-  
-}
-  
-
-  
-if (type === "winner") {
-  
-
-  
-if (questionNumber === 1) {
-  
-
-  
-return `
-  
-😎 Excellent question.
-  
-The answer is simple:
-  
-whatever happens, I am the only one here
-  
-capable of winning.
-  
-I have the statistics, the confidence,
-  
-and absolutely no humility.
-  
-`;
-  
-
-  
-}
-  
-
-  
-if (questionNumber === 2) {
-  
-
-  
-return `
-  
-👑 Interesting question.
-  
-But let's be realistic.
-  
-Whatever happens, I win.
-  
-If something goes wrong, I still win.
-  
-If something goes right, obviously I win.
-  
-This is a very convenient system.
-  
-`;
-  
-
-  
-}
-  
-
-  
-}
-  
-
-  
-if (type === "loser") {
-  
-
-  
-if (questionNumber === 1) {
-  
-
-  
-return `
-  
-😭 This was NOT my fault.
-  
-The text was biased.
-  
-The other letters were suspicious.
-  
-Honestly, I blame everyone except me.
-  
-`;
-  
-
-  
-}
-  
-
-  
-if (questionNumber === 2) {
-  
-
-  
-return `
-  
-😤 The counting system was clearly against me.
-  
-Also the writer.
-  
-Also the alphabet.
-  
-Also possibly the keyboard.
-  
-I would like to formally blame all of them.
-  
-`;
-  
-
-  
-}
-  
-
-  
-}
-  
-
-  
-}
-  
-
-  
-/* ================= EXPRESSIONS ================= */
-  
-
-  
-function changeInterviewExpression() {
-  
-
-  
-const character =
-  
-document.getElementById(
-  
-"letterCharacter"
-  
-);
-  
-
-  
-if (interviewType === "winner") {
-  
-
-  
-if (interviewQuestionCount === 1) {
-  
-
-  
-character.className =
-  
-"letter-character winner-expression-1";
-  
-
-  
-}
-  
-
-  
-else if (
-  
-interviewQuestionCount === 2
-  
-) {
-  
-
-  
-character.className =
-  
-"letter-character winner-expression-2";
-  
-
-  
-}
-  
-
-  
-else {
-  
-
-  
-character.className =
-  
-"letter-character winner-expression-3";
-  
-
-  
-}
-  
-
-  
-}
-  
-
-  
-else {
-  
-
-  
-if (interviewQuestionCount === 1) {
-  
-
-  
-character.className =
-  
-"letter-character loser-character loser-expression-1";
-  
-
-  
-}
-  
-
-  
-else if (
-  
-interviewQuestionCount === 2
-  
-) {
-  
-
-  
-character.className =
-  
-"letter-character loser-character loser-expression-2";
-  
-
-  
-}
-  
-
-  
-else {
-  
-
-  
-character.className =
-  
-"letter-character loser-character loser-expression-3";
-  
-
-  
-}
-  
-
-  
-}
-  
-
-  
-}
-  
-
-  
-/* ================= FINISH INTERVIEW ================= */
-  
-
-  
-function finishInteractiveInterview() {
-  
-
-  
-document
-  
-.getElementById("questionInput")
-  
-.disabled = true;
-  
-
-  
-document
-  
-.getElementById("askQuestionButton")
-  
-.disabled = true;
-  
-
-  
-document
-  
-.getElementById("interviewFinalButton")
-  
-.classList.add("show");
-  
-
-  
-if (interviewType === "winner") {
-  
-
-  
-document
-  
-.getElementById("interviewFinalButton")
-  
-.textContent =
-  
-"🚨 THE CHAMPION IS TOO BUSY... SOMETHING IS HAPPENING";
-  
-
-  
-}
-  
-
-  
-else {
-  
-
-  
-document
-  
-.getElementById("interviewFinalButton")
-  
-.textContent =
-  
-"😭 WAIT... THE LOSER HAS ONE LAST THING TO SAY";
-  
-
-  
-}
-  
-
-  
-}
-  
-
-  
-/* ================= FINAL INTERVIEW ================= */
-  
-
-  
-function showFinalInterviewMessage() {
-  
-
-  
-const ending =
-  
-document.getElementById(
-  
-"interactiveInterviewEnding"
-  
-);
-  
-
-  
-ending.style.display = "block";
-  
-
-  
-if (interviewType === "winner") {
-  
-
-  
-ending.textContent =
-  
-"👑 THE CHAMPION HAS LEFT THE INTERVIEW BECAUSE THEY ARE TOO IMPORTANT. PLEASE WAIT... SOMETHING IS SHAKING.";
-  
-
-  
-}
-  
-
-  
-else {
-  
-
-  
-ending.textContent =
-  
-"💀 THE LOSER HAS LEFT THE INTERVIEW. THEIR EMOTIONAL DAMAGE IS NOW COMPLETE.";
-  
-
-  
-}
-  
-
-  
-ending.scrollIntoView({
-  
-behavior: "smooth"
-  
-});
-  
-
-  
-}
-  
-
-  
-/* ================= ESCAPE HTML ================= */
-  
-
-  
-function escapeHTML(text) {
-  
-
-  
-const div =
-  
-document.createElement("div");
-  
-
-  
-div.textContent = text;
-  
-
-  
-return div.innerHTML;
-  
-
-  
-}
-  
-
-  
-/* ================= AUTO UPPERCASE ================= */
-  
-
-  
-document
-  
-.getElementById("letter1")
-  
-.addEventListener(
-  
-"input",
-  
-function() {
-  
-
-  
-this.value =
-  
-this.value.toUpperCase();
-  
-
-  
-}
-  
-);
-  
-
-  
-document
-  
-.getElementById("letter2")
-  
-.addEventListener(
-  
-"input",
-  
-function() {
-  
-
-  
-this.value =
-  
-this.value.toUpperCase();
-  
-
-  
-}
-  
-);
-  
-
-  
-document
-  
-.getElementById("challengerInput")
-  
-.addEventListener(
-  
-"input",
-  
-function() {
-  
-
-  
-this.value =
-  
-this.value.toUpperCase();
-  
-
-  
-}
-  
-);
-  
-
-  
-/* ================= ENTER KEY ================= */
-  
-
-  
-document
-  
-.getElementById("questionInput")
-  
-.addEventListener(
-  
-"keydown",
-  
-function(event) {
-  
-
-  
-if (event.key === "Enter") {
-  
-
-  
-askQuestion();
-  
-
-  
-}
-  
-
-  
-}
-  
-);
-  
-
-  
-</script></body></html>
+</html>
