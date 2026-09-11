@@ -2,44 +2,55 @@
 
 
 
-# [Project Name] 🎯
+#LETTER BATTLE ROYALE🎯
 
 
 ## Basic Details
-### Team Name: [Name]
+### Team Name: CodeX2
 
 
 ### Team Members
-- Team Lead: [Name] - [College]
-- Member 2: [Name] - [College]
-- Member 3: [Name] - [College]
+- Team Lead: Niranjana S A - College Of Engineering Attingal
+- Member 2: Mayoora S - College Of Engineering Attingal
+
 
 ### Project Description
-[2-3 lines about what your project does]
+Letter Battle Royale is a fun web application,where letters compete against each other based on their frequency in
+user-provided text. The winner is declared as the boss, while the loser
+receives completely unnecessary emotional support.
+
+
 
 ### The Problem (that doesn't exist)
-[What ridiculous problem are you solving?]
+Nobody knows which letter is truly the most powerful.
+People have been reading and writing for years without knowing whether
+A, E, or some random letter deserves to rule the alphabet.
+We decided this was a very serious problem.
+
 
 ### The Solution (that nobody asked for)
-[How are you solving it? Keep it fun!]
+Letter Battle Royale lets users enter text and put two letters into battle.
+The system counts their frequency, declares the letter with the higher
+frequency as the winner, and gives the losing letter some hilarious
+emotional support.
+
+Users can continue the battle through tournaments, view letter-frequency
+charts, discover funny zodiac-style personalities, and finally witness
+the completely unnecessary Boss Declaration
 
 ## Technical Details
 ### Technologies/Components Used
 For Software:
-- [Languages used]
-- [Frameworks used]
-- [Libraries used]
-- [Tools used]
+- Languages used:HTML,CSS,JavaScript
+- Frameworks used:None
+- Libraries used:Google Fonts
+- Tools used:Visual Studio Code,GitHub
 
-For Hardware:
-- [List main components]
-- [List specifications]
-- [List tools required]
 
 ### Implementation
 For Software:
 # Installation
-[commands]
+No installation required.The project runs directly in a web browser.
 
 # Run
 [commands]
