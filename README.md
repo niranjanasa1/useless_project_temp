@@ -36,7 +36,7 @@ emotional support.
 
 Users can continue the battle through tournaments, view letter-frequency
 charts, discover funny zodiac-style personalities, and finally witness
-the completely unnecessary Boss Declaration
+the completely unnecessary winner and loser interview.
 
 ## Technical Details
 ### Technologies/Components Used
@@ -59,37 +59,31 @@ https://useless-project-temp-green.vercel.app/
 For Software:The application is built using HTML, CSS, and JavaScript. Users can enter letters, compare their frequency, declare a winner, and view additional features such as tournaments, frequency charts, emotional support, and zodiac-based character results.
 
 # Screenshots (Add at least 3)
-![Screenshot1](Add screenshot 1 here with proper name)
-*Add caption explaining what this shows*
+<img width="1920" height="1080" alt="Screenshot (50)" src="https://github.com/user-attachments/assets/dcc86cfe-8afc-4ee1-9f9f-30a415bf0bdc" />
+landing page-
+guides the user to the site . shows the basic features of the site.
 
-![Screenshot2](Add screenshot 2 here with proper name)
-*Add caption explaining what this shows*
+ <img width="1909" height="919" alt="Screenshot (51)" src="https://github.com/user-attachments/assets/04b5e795-9cc2-49fb-9151-52ae6f785702" />
+home page-
+In home page user enters or copies a text to the text box .The battle begins...
 
-![Screenshot3](Add screenshot 3 here with proper name)
-*Add caption explaining what this shows*
+<img width="1920" height="1080" alt="Screenshot (52)" src="https://github.com/user-attachments/assets/2835ed0b-7865-45e7-9e16-21fb7c0559e4" />
+letter choosing-
+User chooses any two letter, site counts the frequency of that two letters and letter with most frequency wins.
+
+<img width="1920" height="919" alt="Screenshot (53)" src="https://github.com/user-attachments/assets/f9e488d5-879f-4a86-9bff-365831d6c5ff" />
+Tournament-
+The winning letter advances to the tournament, where it faces four new challengers in successive battles. Each round is decided by letter frequency, allowing one champion to emerge. The final board displays the battle outcomes and rankings.
+
+<img width="1920" height="930" alt="Screenshot (55)" src="https://github.com/user-attachments/assets/931abbd8-6e0e-4705-abc4-9adeac6fee69" />
+Interview-
+The winning letter advances to the tournament, where it faces four new challengers in successive battles. Each round is decided by letter frequency, allowing one champion to emerge. The final board displays the battle outcomes and rankings.
 
 # Diagrams
 ![Workflow](Add your workflow/architecture diagram here)
 *Add caption explaining your workflow*
 
-For Hardware:
 
-# Schematic & Circuit
-![Circuit](Add your circuit diagram here)
-*Add caption explaining connections*
-
-![Schematic](Add your schematic diagram here)
-*Add caption explaining the schematic*
-
-# Build Photos
-![Components](Add photo of your components here)
-*List out all components shown*
-
-![Build](Add photos of build process here)
-*Explain the build steps*
-
-![Final](Add photo of final product here)
-*Explain the final build*
 
 ### Project Demo
 # Video
