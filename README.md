@@ -80,23 +80,22 @@ Interview-
 The winning letter advances to the tournament, where it faces four new challengers in successive battles. Each round is decided by letter frequency, allowing one champion to emerge. The final board displays the battle outcomes and rankings.
 
 # Diagrams
-![Workflow](Add your workflow/architecture diagram here)
-*Add caption explaining your workflow*
+ <img width="1536" height="1024" alt="workflow" src="https://github.com/user-attachments/assets/b968dadc-9cd2-4ce1-ba82-c6f95cfbcb47" />
+
+Workflow: Upload an image or text, choose two letters, and start the battle. The letters compete based on their frequency, and the winner moves through the tournament. After the tournament, there comes the interview for both winner and looser.
 
 
 
 ### Project Demo
 # Video
-[Add your demo video link here]
-*Explain what the video demonstrates*
+https://drive.google.com/file/d/1aGyKbZihfavFfBcHuZEdMirk1_9ztAOo/view?usp=sharing
+Demo Video: A short walkthrough of Letter Battle Royale, showcasing the letter battle, tournament ,top 5 letter frequency and interview with the winner.
 
-# Additional Demos
-[Add any extra demo materials/links]
 
 ## Team Contributions
-- [Name 1]: [Specific contributions]
-- [Name 2]: [Specific contributions]
-- [Name 3]: [Specific contributions]
+- Niranjana SA: frontend+backened
+- Mayoora S:Github
+  
 
 ---
 Made with ❤️ at TinkerHub Useless Projects 
